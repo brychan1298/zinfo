@@ -10,7 +10,18 @@
 <body>
     <?php
         include "DBconn.php";
-        $events = mysqli_query($conn, "SELECT * FROM event") or die(mysqli_error($conn));
+        $perPage = 6;
+        $total = mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) FROM event"))[0];
+        $totalPage = $total/$perPage;
+        if(isset($_GET["page"])){
+            $currentPage = $_GET["page"];
+        }else{
+            $currentPage = 1;
+        }
+        
+        $firstDataofPage = ($perPage * $currentPage)-$perPage;
+
+        $events = mysqli_query($conn, "SELECT * FROM event limit $firstDataofPage,$perPage") or die(mysqli_error($conn));
     ?>
     <!-- NAVBAR -->
     <nav id="nav">
@@ -79,25 +90,25 @@
     <div id="category">
         <h2>Event Category</h2>
         <div id="category-section">
-            <div class="category-list">
+            <div class="category-list" onclick="locateCategory('Concert')">
                 <div class="category-list-box">
                     <img src="Asset/icon-concert.png" alt="">
                 </div>
                 <p>Concert</p>
             </div>
-            <div class="category-list">
+            <div class="category-list" onclick="locateCategory('Seminar')">
                 <div class="category-list-box">
                     <img src="Asset/icon-seminar.png" alt="">
                 </div>
                 <p>Seminar</p>
             </div>
-            <div class="category-list">
+            <div class="category-list" onclick="locateCategory('Competition')">
                 <div class="category-list-box">
                     <img src="Asset/icon-competition.png" alt="">
                 </div>
                 <p>Competition</p>
             </div>
-            <div class="category-list">
+            <div class="category-list" onclick="locateCategory('Volunteer')">
                 <div class="category-list-box">
                     <img src="Asset/icon-volunteer.png" alt="">
                 </div>
@@ -172,26 +183,21 @@
                 <<
             </a>
         </div>
-        <div class="pagination-number active">
-            <a href="" class="active">
-                1
-            </a>
-        </div>
-        <div class="pagination-number">
-            <a href="">
-                2
-            </a>
-        </div>
-        <div class="pagination-number">
-            <a href="">
-                3
-            </a>
-        </div>
-        <div class="pagination-number">
-            <a href="">
-                4
-            </a>
-        </div>
+        <?php for($i = 1; $i <= $totalPage; $i++): ?>  
+            <?php if($i == $currentPage): ?>
+                <div class="pagination-number active">
+                    <a href="?page=<?= $i ?>" class="active">
+                        <?= $i ?>
+                    </a>
+                </div>
+            <?php else :?>
+                <div class="pagination-number">
+                    <a href="?page=<?= $i ?>" class="">
+                        <?= $i ?>
+                    </a>
+                </div>
+            <?php endif; ?>
+        <?php endfor ?>
         <div>
             <a href="">
                 >>
@@ -286,5 +292,6 @@
 
         <h4>© 2022 ZInfo. All rights reserved.</h4>
     </div>
+    <script src="js/event.js"></script>
 </body>
 </html>

@@ -135,6 +135,11 @@ nav ul li a:hover{
     max-width: 20%;
     background-color: #EFF4F7;
     border-radius: 30px;
+    cursor: pointer;
+}
+
+#category-section .category-list:hover{
+    transform: scale(1.1);
 }
 
 .category-list-box{

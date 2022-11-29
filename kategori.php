@@ -6,9 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/kategori.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="js/kategori.js"></script>
 </head>
 <body>
     <!-- NAVBAR -->
+    <?php
+        include "DBconn.php";
+        $kategori = $_GET['kategori'];
+
+        $events = mysqli_query($conn,"SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori'") or die(mysqli_error($conn));
+        if(isset($_POST['search'])){
+            $nama = $_POST['search'];
+            $kategori = $_POST['kategori'];
+            $events = mysqli_query($conn,"SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori' AND e.nama LIKE '%$nama%'") or die(mysqli_error($conn));
+        }else if(isset($_POST['kategori'])){
+            $kategori = $_POST['kategori'];
+            $events = mysqli_query($conn,"SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori'") or die(mysqli_error($conn));
+        }
+    ?>
     <nav id="nav">
         <div>
             <ul id="ul">
@@ -18,16 +34,16 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Tentang.html">Home</a>
+                    <a href="home.php">Home</a>
                 </li>
                 <li>
-                    <a href="Materi.html">About Us</a>
+                    <a href="">About Us</a>
                 </li>
                 <li>
-                    <a href="Mengajar.html">Event</a>
+                    <a href="event.php">Event</a>
                 </li>
                 <li>
-                    <a href="Daftar.html">Twibbon</a>
+                    <a href="twibbon.php">Twibbon</a>
                 </li>
             </ul>
         </div>
@@ -72,20 +88,28 @@
     </div>
 
     <!-- SEARCH BAR -->
-    <div id="search">
-        <div id="search-bar">
-            <div class="search-bar-input">
-                <input type="text" placeholder="Cari Konser">
-            </div>
-            <div class="search-bar-icon">
-                <img src="Asset/icon-search.png" alt="">
+    <form action="kategori.php" method="POST">
+        <div id="search">
+            <div id="search-bar">
+                <input type="hidden" value="<?= $kategori ?>" name="kategori">
+                <div class="search-bar-input">
+                    <input type="text" placeholder="Cari Konser" name="search">
+                </div>
+                <div class="search-bar-icon" onClick="document.forms[0].submit()">
+                    <img src="Asset/icon-search.png" alt="">
+                </div>
             </div>
         </div>
-    </div>
+    </form>
+
+    <?php
+        
+        
+    ?>
 
     <!-- CONCERT -->
     <div id="concert">
-        <h2>Concert</h2>
+        <h2><?= $kategori ?></h2>
     </div>
 
     <!-- FILTER -->
@@ -144,246 +168,54 @@
      <!-- EVENT -->
      <div id="event">
         <div id="event-section">
-            <div class="event-list">
-                <div class="event-list-img">
-                    <img src="Asset/poster-stray.png" alt="">
-                </div>
-                <div class="event-list-desc">
-                    <h2>Stray Kids 2nd World Tour</h2>
-                    <div class="event-list-location">
-                        <div class="event-list-location-icon">
-                            <img src="Asset/icon-location.png" alt="">
+            <?php 
+                foreach($events as $event):
+            ?>
+                <div class="event-list">
+                    <a href="detailevent.php?eventID=<?= $event["EventID"] ?>">
+                        <div class="event-list-img">
+                            <img src="Asset/poster/<?= $event["GambarPoster"] ?>" alt="">
                         </div>
-                        <div>
-                            <p>
-                                Pontianak, Kalbar
-                            </p>
-                        </div>
-                    </div>
+                        <div class="event-list-desc">
+                            <h2><?= $event["Nama"] ?></h2>
+                            <div class="event-list-location">
+                                <div class="event-list-location-icon">
+                                    <img src="Asset/icon-location.png" alt="">
+                                </div>
+                                <div>
+                                    <p>
+                                    <?= $event["Lokasi"] ?>
+                                    </p>
+                                </div>
+                            </div>
 
-                    <div class="event-list-date">
-                        <div class="event-list-date-icon">
-                            <img src="Asset/icon-event-date.png" alt="">
-                        </div>
-                        <div>
-                            <p>
-                                13 November 2022
-                            </p>
-                        </div>
-                    </div>
+                            <div class="event-list-date">
+                                <div class="event-list-date-icon">
+                                    <img src="Asset/icon-event-date.png" alt="">
+                                </div>
+                                <div>
+                                    <p>
+                                        <?= $event["Tanggal"] ?>
+                                    </p>
+                                </div>
+                            </div>
 
-                    <div class="event-list-price">
-                        <div class="event-list-price-p">
-                            <p>Rp 199.000,00</p>
+                            <div class="event-list-price">
+                                <div class="event-list-price-p">
+                                    <p>Rp <?= $event["Harga"] ?>,00</p>
+                                </div>
+                                <div class="event-list-price-ticket">
+                                    <p>
+                                        10 Tiket Tersisa
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="event-list-price-ticket">
-                            <p>
-                                10 Tiket Tersisa
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="event-list">
-                <div class="event-list-img">
-                    <img src="Asset/poster-stray.png" alt="">
-                </div>
-                <div class="event-list-desc">
-                    <h2>Stray Kids 2nd World Tour</h2>
-                    <div class="event-list-location">
-                        <div class="event-list-location-icon">
-                            <img src="Asset/icon-location.png" alt="">
-                        </div>
-                        <div>
-                            <p>
-                                Pontianak, Kalbar
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="event-list-date">
-                        <div class="event-list-date-icon">
-                            <img src="Asset/icon-event-date.png" alt="">
-                        </div>
-                        <div>
-                            <p>
-                                13 November 2022
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="event-list-price">
-                        <div class="event-list-price-p">
-                            <p>Rp 199.000,00</p>
-                        </div>
-                        <div class="event-list-price-ticket">
-                            <p>
-                                10 Tiket Tersisa
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="event-list">
-                <div class="event-list-img">
-                    <img src="Asset/poster-stray.png" alt="">
-                </div>
-                <div class="event-list-desc">
-                    <h2>Stray Kids 2nd World Tour</h2>
-                    <div class="event-list-location">
-                        <div class="event-list-location-icon">
-                            <img src="Asset/icon-location.png" alt="">
-                        </div>
-                        <div>
-                            <p>
-                                Pontianak, Kalbar
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="event-list-date">
-                        <div class="event-list-date-icon">
-                            <img src="Asset/icon-event-date.png" alt="">
-                        </div>
-                        <div>
-                            <p>
-                                13 November 2022
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="event-list-price">
-                        <div class="event-list-price-p">
-                            <p>Rp 199.000,00</p>
-                        </div>
-                        <div class="event-list-price-ticket">
-                            <p>
-                                10 Tiket Tersisa
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="event-list">
-                <div class="event-list-img">
-                    <img src="Asset/poster-stray.png" alt="">
-                </div>
-                <div class="event-list-desc">
-                    <h2>Stray Kids 2nd World Tour</h2>
-                    <div class="event-list-location">
-                        <div class="event-list-location-icon">
-                            <img src="Asset/icon-location.png" alt="">
-                        </div>
-                        <div>
-                            <p>
-                                Pontianak, Kalbar
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="event-list-date">
-                        <div class="event-list-date-icon">
-                            <img src="Asset/icon-event-date.png" alt="">
-                        </div>
-                        <div>
-                            <p>
-                                13 November 2022
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="event-list-price">
-                        <div class="event-list-price-p">
-                            <p>Rp 199.000,00</p>
-                        </div>
-                        <div class="event-list-price-ticket">
-                            <p>
-                                10 Tiket Tersisa
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="event-list">
-                <div class="event-list-img">
-                    <img src="Asset/poster-stray.png" alt="">
-                </div>
-                <div class="event-list-desc">
-                    <h2>Stray Kids 2nd World Tour</h2>
-                    <div class="event-list-location">
-                        <div class="event-list-location-icon">
-                            <img src="Asset/icon-location.png" alt="">
-                        </div>
-                        <div>
-                            <p>
-                                Pontianak, Kalbar
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="event-list-date">
-                        <div class="event-list-date-icon">
-                            <img src="Asset/icon-event-date.png" alt="">
-                        </div>
-                        <div>
-                            <p>
-                                13 November 2022
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="event-list-price">
-                        <div class="event-list-price-p">
-                            <p>Rp 199.000,00</p>
-                        </div>
-                        <div class="event-list-price-ticket">
-                            <p>
-                                10 Tiket Tersisa
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="event-list">
-                <div class="event-list-img">
-                    <img src="Asset/poster-stray.png" alt="">
-                </div>
-                <div class="event-list-desc">
-                    <h2>Stray Kids 2nd World Tour</h2>
-                    <div class="event-list-location">
-                        <div class="event-list-location-icon">
-                            <img src="Asset/icon-location.png" alt="">
-                        </div>
-                        <div>
-                            <p>
-                                Pontianak, Kalbar
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="event-list-date">
-                        <div class="event-list-date-icon">
-                            <img src="Asset/icon-event-date.png" alt="">
-                        </div>
-                        <div>
-                            <p>
-                                13 November 2022
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="event-list-price">
-                        <div class="event-list-price-p">
-                            <p>Rp 199.000,00</p>
-                        </div>
-                        <div class="event-list-price-ticket">
-                            <p>
-                                10 Tiket Tersisa
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    </a>
+                </div>       
+            <?php
+                endforeach
+            ?>
         </div>
     </div>
 
