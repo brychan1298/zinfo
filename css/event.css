@@ -20,58 +20,57 @@ body{
 #menu > i{
     font-size: 20px;
 }
-
 nav{
     position: sticky;
     left: 0;
     top: 0;
     z-index: 1;
     display: flex;  
-    padding: 20px 5.5%; 
+    padding: 5px 5.5%; 
     justify-content: space-between;
     align-items: center;
     background-color: #0066FF;
     flex-wrap: wrap;
     width: 100%;
-}
-
-nav ul{
+    }
+    
+    nav ul{
     list-style-type: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-nav .menu-responsive i{
+    }
+    
+    nav .menu-responsive i{
     display: none;
     color: #42A7C3;
     font-size: 80px;
     cursor: pointer;
-}
-
-nav>div>#ul>li>a{
+    }
+    
+    nav>div>#ul>li>a{
     /* font-size: 24px; */
     padding: 15px;
     padding-right: 35px;
     color: white;
     font-size: 1.4vw;
     text-decoration: none;
-}
-
-nav li a.active{
+    }
+    
+    nav li a.active{
     text-decoration: underline;
     color: #FFB830;
-}
-
-nav ul li a:hover{
+    }
+    
+    nav ul li a:hover{
     color: #FFB830;
-}
-
-#ul2 img{
+    }
+    
+    #ul2 img{
     width: 70%;
-}
-
-#login > button{
+    }
+    
+    #login > button{
     padding: 10px 35px;
     border: none;
     border-radius: 20px;
@@ -80,6 +79,62 @@ nav ul li a:hover{
     font-size: 1em;
     margin-right: 20px;
     cursor: pointer;
+    }
+    
+    @media(max-width:425px){
+    .a{
+        width: 100%;
+        margin-top: 50px;
+    }
+    
+    .a:nth-child(n+2){
+        margin-top: 40px;
+    }
+    }
+    
+    @media (max-width: 832px){
+    nav{
+        padding: 20px 40px 20px 50px;
+    }
+    
+    #menu{
+        border: 2px solid #42A7C3;
+        border-radius: 7px;
+        padding: 10px;
+        position: absolute;
+        right: 5.5%;
+        cursor: pointer;
+    }
+    
+    nav .menu-responsive i{
+        display: block;
+    }
+    
+    nav ul{
+        position: fixed;
+        margin: 0;
+        padding: 0;
+        top: 50px;
+        left: 100%;
+        display: block;
+        background-color: #0066FF;
+        height: auto;
+        width: 100%;
+        text-align: right;
+        transition: all 0.7s ease;
+    }
+    
+    nav ul li{
+        width: 100%;
+        margin: 5px 0px;
+    }
+    
+    nav div ul li a{
+        width: 100%;
+        display: block;
+        font-size: 15px;
+        color: #f2f2f2;
+    }
 }
 
 /* NAVBAR CSS } */
@@ -289,170 +344,84 @@ nav ul li a:hover{
 
 
 /* { FOOTER CSS */
+
 #footer-wrapper{
-    background-color: #0066FF;
-    color: white;
-    margin-top: 72px;
+background-color: #0066FF;
+color: white;
+margin-top: 60px;
 }
 
 #footer-wrapper > h4{
-    color: white;
-    text-align: center;
-    padding: 20px;
+color: white;
+text-align: center;
+padding: 10px;
 }
 
 #footer{
-    display: flex;
-    padding-top: 4%;
-    padding-left: 5.5%;
-    padding-right: 5.5%;
-    padding-bottom: 4%;
-    justify-content: space-between;
-    background-color: #4D94FF;
-    flex-wrap: wrap;
+display: flex;
+padding-top: 1%;
+padding-left: 5.5%;
+padding-right: 5.5%;
+padding-bottom: 1%;
+justify-content: space-between;
+background-color: #4D94FF;
+flex-wrap: wrap;
 }
 
 .footer-box1> img{
-    width: 70%;
+width: 70%;
 }
 
 .a{
-    width: 20%;
-}
-
-#footer-icon{
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-    margin-top: 40px;
-}
-
-#footer-icon > span{
-    padding-right: 10px;
+width: 20%;
 }
 
 .footer-box2 h2{
-    margin-bottom: 25px;
+margin-bottom: 14px;
 }
 
 .footer-box2 p{
-    margin-top: 10px;
+margin-top: 10px;
 }
 
 .footer-box3 a{
-    text-decoration: none;
-    color: white;
+text-decoration: none;
+color: white;
 }
 
 .footer-box3 h2{
-    margin-bottom: 25px;
+margin-bottom: 14px;
 }
 
 .footer-box3 p{
-    margin-top: 10px;
+margin-top: 10px;
 }
 
 .footer-box4 h2{
-    margin-bottom: 25px;
+margin-bottom: 14px;
 }
 
 .footer-box4 p{
-    margin-top: 10px;
+margin-top: 10px;
 }
 
 .footer-box5 h2{
-    margin-bottom: 25px;
+margin-bottom: 14px;
 }
 
 .footer-box5 p{
-    margin-top: 10px;
+margin-top: 10px;
 }
 
 .footer-follow-us{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-top: 10px;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+margin-top: 10px;
+font-size: 0.9em;
 }
 
-.footer-follow-us>div:first-child{
-    margin-right: 10px;
+.footer-follow-us img{
+width: 70%;
 }
-
-@media(max-width:425px){
-    .a{
-        width: 100%;
-        margin-top: 50px;
-    }
-
-    .a:nth-child(n+2){
-        margin-top: 40px;
-    }
-}
-
-@media (max-width: 832px){
-    nav{
-        padding: 20px 40px 20px 50px;
-    }
-    
-    #menu{
-        border: 2px solid #42A7C3;
-        border-radius: 7px;
-        padding: 10px;
-        position: absolute;
-        right: 5.5%;
-        cursor: pointer;
-    }
-
-    nav .menu-responsive i{
-        display: block;
-    }
-
-    nav ul{
-        position: fixed;
-        margin: 0;
-        padding: 0;
-        top: 94px;
-        left: 100%;
-        display: block;
-        background: #42A7C3;
-        height: auto;
-        width: 100%;
-        text-align: right;
-        transition: all 0.7s ease;
-    }
-
-    nav ul li{
-        width: 100%;
-        margin: 5px 0px;
-    }
-    
-    nav ul li a{
-        width: 100%;
-        display: block;
-        font-size: 15px;
-        color: #f2f2f2;
-    }
-
-    .left-header{
-        flex: 100%;
-        /* max-width: 100%; */
-    }
-
-    .right-header{
-        flex: 100%;
-        text-align: center;
-        /* max-width: 100%; */
-    }
-
-    .right-header > img{
-        margin-top: 120px;
-        width: 70%;
-    }
-
-    .daftar{
-        color: #f2f2f2;
-    }
-}
-
 /* FOOTER CSS } */

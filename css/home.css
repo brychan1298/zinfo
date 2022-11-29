@@ -358,10 +358,10 @@ padding: 10px;
 
 #footer{
 display: flex;
-padding-top: 2%;
+padding-top: 1%;
 padding-left: 5.5%;
 padding-right: 5.5%;
-padding-bottom: 2%;
+padding-bottom: 1%;
 justify-content: space-between;
 background-color: #4D94FF;
 flex-wrap: wrap;
