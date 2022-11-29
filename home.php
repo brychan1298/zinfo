@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    "TES"
     <?php
         include "DBconn.php";
         $trending = mysqli_query($conn, "SELECT * FROM event limit 4") or die(mysqli_error($conn));
