@@ -1,15 +1,17 @@
 $(document).ready(function(){
-    $('.data').load("kategori.php");
+    // $('#event').load("kategoriFilterAjax.php");
     $("#buttonSearch").click(function(){
-        var lokasi = $("#lokasi").val();
+        
+        var lokasi = $("#location").val();
         var date = $("#date").val();
         var typePert = $("#typePert").val();
+        var kategori = $("#kategoriHidden").val();
         $.ajax({
             type: 'POST',
-            url: "kategori.php",
-            data: {jurusan: jurusan, keyword:keyword},
+            url: "kategoriFilterAjax.php",
+            data: {lokasi: lokasi, date:date, typePert:typePert, kategori:kategori},
             success: function(hasil) {
-                $('.data').html(hasil);
+                $('#event').html(hasil);
             }
         });
     });
