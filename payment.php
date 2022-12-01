@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="css/payment.css">
 </head>
 <body>
+
+    <?php include "navbar.php" ?>
+    
     <div id="payment">
         <div id="payment-1">
             <h2>Payment</h2>

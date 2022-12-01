@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/detailevent.css">
+    <script src="js/detailevent.js"></script>
 </head>
 <body>
     <?php
@@ -15,55 +16,7 @@
         $eventdetail = mysqli_query($conn, "SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID  WHERE EventID = $EventID");
         $detailed = mysqli_fetch_assoc($eventdetail);
     ?>
-    <nav id="nav">
-        <div>
-            <ul id="ul">
-                <li>
-                    <a href="Beranda.html">
-                        <img src="Asset/Logo Zinfo 2.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="home.php">Home</a>
-                </li>
-                <li>
-                    <a href="">About Us</a>
-                </li>
-                <li>
-                    <a href="event.php">Event</a>
-                </li>
-                <li>
-                    <a href="twibbon.php">Twibbon</a>
-                </li>
-            </ul>
-        </div>
-        
-
-        <!-- RESPONSIVE MENU -->
-        <div id="toggle">open</div>
-        <div id="menu" class="menu-responsive">
-            <i class="fas fa-bars menu"></i>
-        </div>
-        
-        <div>
-            <ul id="ul2">
-                <li id="login">
-                    <button>Log In</button>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="Asset/cart.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="Asset/profil.png" alt="">
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </nav>
+    <?php include "navbar.php" ?>
 
     <div id="detail-event">
         <div id="detail-event-left">
@@ -152,13 +105,13 @@
                     ?>  
 
                     <div id="event-date">
-                        <div>
+                        <div id="eventMonth">
                             <?= $newDateMonth ?>
                         </div>
-                        <div>
+                        <div id="eventDate">
                             <?= $newDateDate ?>
                         </div>
-                        <div>
+                        <div id="eventDay">
                             <?= $newDateDay ?>
                         </div>
                     </div>
@@ -179,13 +132,13 @@
                     </h2>
                     <div id="event-count">
                         <div>
-                            <button id="addButton" onclick="addAmount()">-</button>
+                            <button id="minButton" onclick="reduceAmount()">-</button>
                         </div>
                         <div id="amount">
                             <input type="text" value="0" id="textAmount">
                         </div>
                         <div>
-                            <button id="addButton">+</button>
+                            <button id="addButton" onclick="addAmount()">+</button>
                         </div>
                     </div>
                 </div>

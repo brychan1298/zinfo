@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/uploadproof.css">
 </head>
 <body>
+
+    <?php include "navbar.php" ?>
     <div id="upload">
         <div id="upload-text">
             Upload Payment Evidence

@@ -12,7 +12,7 @@
         include "DBconn.php";
         $perPage = 6;
         $total = mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) FROM event"))[0];
-        $totalPage = $total/$perPage;
+        $totalPage = ceil($total/$perPage);
         if(isset($_GET["page"])){
             $currentPage = $_GET["page"];
         }else{
@@ -24,55 +24,7 @@
         $events = mysqli_query($conn, "SELECT * FROM event limit $firstDataofPage,$perPage") or die(mysqli_error($conn));
     ?>
     <!-- NAVBAR -->
-    <nav id="nav">
-        <div>
-            <ul id="ul">
-                <li>
-                    <a href="home.php">
-                        <img src="Asset/Logo Zinfo 2.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="home.php">Home</a>
-                </li>
-                <li>
-                    <a href="">About Us</a>
-                </li>
-                <li>
-                    <a href="event.php">Event</a>
-                </li>
-                <li>
-                    <a href="twibbon.php">Twibbon</a>
-                </li>
-            </ul>
-        </div>
-        
-
-        <!-- RESPONSIVE MENU -->
-        <div id="toggle">open</div>
-        <div id="menu" class="menu-responsive">
-            <i class="fas fa-bars menu"></i>
-        </div>
-        
-        <div>
-            <ul id="ul2">
-                <li id="login">
-                    <button>Log In</button>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="Asset/cart.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="Asset/profil.png" alt="">
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </nav>
+    <?php include "navbar.php" ?>
 
     <!-- BANNER -->
     <div id="banner">

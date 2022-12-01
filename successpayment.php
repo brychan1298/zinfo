@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/successpayment.css">
 </head>
 <body>
+
+    <?php include "navbar.php" ?>
     <div id="success">
         <h2>Pembayaran Berhasil!</h2>
         <img src="Asset/QR.png" alt="">

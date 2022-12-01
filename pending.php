@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/pending.css">
 </head>
 <body>
+
+    <?php include "navbar.php" ?>
     <div id="pending">
         <div id="pending-bg">
             <img src="Asset/linear-bg1.png" alt="">

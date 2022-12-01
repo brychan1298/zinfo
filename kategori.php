@@ -29,64 +29,16 @@
         if(isset($_POST['search'])){
             $nama = $_POST['search'];
             $kategori = $_POST['kategori'];
-            $events = mysqli_query($conn,"SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori' AND e.nama LIKE '%$nama%' limit $firstDataofPage,$perPage") or die(mysqli_error($conn));
-            $total = mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori' AND e.nama LIKE '%$nama%' limit $firstDataofPage,$perPage"))[0];
+            $events = mysqli_query($conn,"SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori' AND e.nama LIKE '%$nama%'") or die(mysqli_error($conn));
+            $total = mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori' AND e.nama LIKE '%$nama%'"))[0];
         }else if(isset($_POST['kategori'])){
             $kategori = $_POST['kategori'];
-            $events = mysqli_query($conn,"SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori' limit $firstDataofPage,$perPage") or die(mysqli_error($conn));
-            $total = mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori' limit $firstDataofPage,$perPage"))[0];
+            $events = mysqli_query($conn,"SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori'") or die(mysqli_error($conn));
+            $total = mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori'"))[0];
         }
         $listLokasi = mysqli_query($conn, "SELECT DISTINCT lokasi FROM `event` WHERE lokasi != 'Zoom' ORDER BY lokasi ") or die(mysqli_error($conn));
     ?>
-    <nav id="nav">
-        <div>
-            <ul id="ul">
-                <li>
-                    <a href="home.php">
-                        <img src="Asset/Logo Zinfo 2.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="home.php">Home</a>
-                </li>
-                <li>
-                    <a href="">About Us</a>
-                </li>
-                <li>
-                    <a href="event.php">Event</a>
-                </li>
-                <li>
-                    <a href="twibbon.php">Twibbon</a>
-                </li>
-            </ul>
-        </div>
-        
-
-        <!-- RESPONSIVE MENU -->
-        <div id="toggle">open</div>
-        <div id="menu" class="menu-responsive">
-            <i class="fas fa-bars menu"></i>
-        </div>
-        
-        <div>
-            <ul id="ul2">
-                <li id="login">
-                    <button>Log In</button>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="Asset/cart.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="Asset/profil.png" alt="">
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </nav>
+    <?php include "navbar.php" ?>
 
     <!-- BANNER -->
     <div id="banner">
