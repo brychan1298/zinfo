@@ -179,13 +179,13 @@
                     </h2>
                     <div id="event-count">
                         <div>
-                            <button>+</button>
+                            <button id="addButton" onclick="addAmount()">-</button>
+                        </div>
+                        <div id="amount">
+                            <input type="text" value="0" id="textAmount">
                         </div>
                         <div>
-                            2
-                        </div>
-                        <div>
-                            <button>-</button>
+                            <button id="addButton">+</button>
                         </div>
                     </div>
                 </div>

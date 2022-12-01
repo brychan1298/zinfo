@@ -298,18 +298,43 @@ nav{
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    margin-right: 34%;
-    margin-left: 34%;
+    margin-right: 25%;
+    margin-left: 25%;
     border: 1px solid black;
     border-radius: 30px;
     padding: 7px 0px;
 }
 
+#event-count>div>input{
+    border: none;
+    text-align: center;
+    width: 40%;
+    font-size: 1.2em;
+}
+
+#event-count > div { 
+    
+}
+
+#amount{
+    width: 20%;
+}
+
 #event-count button{
     border: none;
     border-radius: 50%;
-    padding: 4px 9px;
+    padding: 6px 12px;
+    cursor: pointer;
 }
+
+#addButton:hover{
+    box-shadow: 0px 0px 5px rgba(0,0,0, 20%);
+}
+
+#minButton:hover{
+    box-shadow: 0px 0px 5px rgba(0,0,0, 20%);
+}
+
 
 #detail-event-right-3{
     display: flex;

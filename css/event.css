@@ -26,12 +26,16 @@ nav{
     top: 0;
     z-index: 1;
     display: flex;  
-    padding: 5px 5.5%; 
+    padding: 3px 5.5%; 
     justify-content: space-between;
     align-items: center;
     background-color: #0066FF;
     flex-wrap: wrap;
     width: 100%;
+    }
+
+    #ul > li > a > img{
+        width: 50%;
     }
     
     nav ul{

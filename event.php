@@ -28,7 +28,7 @@
         <div>
             <ul id="ul">
                 <li>
-                    <a href="Beranda.html">
+                    <a href="home.php">
                         <img src="Asset/Logo Zinfo 2.png" alt="">
                     </a>
                 </li>
@@ -162,7 +162,7 @@
                                 </div>
                                 <div class="event-list-price-ticket">
                                     <p>
-                                        10 Tiket Tersisa
+                                        <?= $event["sisaTicket"] ?> Tiket Tersisa
                                     </p>
                                 </div>
                             </div>
