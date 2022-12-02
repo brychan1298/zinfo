@@ -7,7 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/kategori.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    
 </head>
 <body>
     <!-- NAVBAR -->
@@ -15,67 +14,31 @@
         include "DBconn.php";
         $kategori = $_GET['kategori'];
 
-        $events = mysqli_query($conn,"SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori'") or die(mysqli_error($conn));
+        $perPage = 6;
+        $total = mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori' "))[0];
+        $totalPage = ceil($total/$perPage);
+        if(isset($_GET["page"])){
+            $currentPage = $_GET["page"];
+        }else{
+            $currentPage = 1;
+        }
+        
+        $firstDataofPage = ($perPage * $currentPage)-$perPage;
+
+        $events = mysqli_query($conn,"SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori' limit $firstDataofPage,$perPage") or die(mysqli_error($conn));
         if(isset($_POST['search'])){
             $nama = $_POST['search'];
             $kategori = $_POST['kategori'];
             $events = mysqli_query($conn,"SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori' AND e.nama LIKE '%$nama%'") or die(mysqli_error($conn));
+            $total = mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori' AND e.nama LIKE '%$nama%'"))[0];
         }else if(isset($_POST['kategori'])){
             $kategori = $_POST['kategori'];
             $events = mysqli_query($conn,"SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori'") or die(mysqli_error($conn));
+            $total = mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID WHERE Kategori = '$kategori'"))[0];
         }
-
         $listLokasi = mysqli_query($conn, "SELECT DISTINCT lokasi FROM `event` WHERE lokasi != 'Zoom' ORDER BY lokasi ") or die(mysqli_error($conn));
     ?>
-    <nav id="nav">
-        <div>
-            <ul id="ul">
-                <li>
-                    <a href="home.php">
-                        <img src="Asset/Logo Zinfo 2.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="home.php">Home</a>
-                </li>
-                <li>
-                    <a href="">About Us</a>
-                </li>
-                <li>
-                    <a href="event.php">Event</a>
-                </li>
-                <li>
-                    <a href="twibbon.php">Twibbon</a>
-                </li>
-            </ul>
-        </div>
-        
-
-        <!-- RESPONSIVE MENU -->
-        <div id="toggle">open</div>
-        <div id="menu" class="menu-responsive">
-            <i class="fas fa-bars menu"></i>
-        </div>
-        
-        <div>
-            <ul id="ul2">
-                <li id="login">
-                    <button>Log In</button>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="Asset/cart.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="Asset/profil.png" alt="">
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </nav>
+    <?php include "navbar.php" ?>
 
     <!-- BANNER -->
     <div id="banner">
@@ -166,7 +129,9 @@
      <!-- EVENT -->
      <div id="event">
         <div id="event-section">
+            
             <?php 
+                if($total != 0):    
                 foreach($events as $event):
             ?>
                 <div class="event-list">
@@ -204,7 +169,7 @@
                                 </div>
                                 <div class="event-list-price-ticket">
                                     <p>
-                                        10 Tiket Tersisa
+                                        <?= $event["sisaTicket"] ?> Tiket Tersisa
                                     </p>
                                 </div>
                             </div>
@@ -212,8 +177,11 @@
                     </a>
                 </div>       
             <?php
-                endforeach
+                endforeach;
+                else:
             ?>
+            <h1>TIDAK ADA EVENT</h1>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -224,26 +192,21 @@
                 <<
             </a>
         </div>
-        <div class="pagination-number active">
-            <a href="" class="active">
-                1
-            </a>
-        </div>
-        <div class="pagination-number">
-            <a href="">
-                2
-            </a>
-        </div>
-        <div class="pagination-number">
-            <a href="">
-                3
-            </a>
-        </div>
-        <div class="pagination-number">
-            <a href="">
-                4
-            </a>
-        </div>
+        <?php for($i = 1; $i <= $totalPage; $i++): ?>  
+            <?php if($i == $currentPage): ?>
+                <div class="pagination-number active">
+                    <a href="?page=<?= $i ?>&kategori=<?= $kategori ?>" class="active">
+                        <?= $i ?>
+                    </a>
+                </div>
+            <?php else :?>
+                <div class="pagination-number">
+                    <a href="?page=<?= $i ?>&kategori=<?= $kategori ?>" class="">
+                        <?= $i ?>
+                    </a>
+                </div>
+            <?php endif; ?>
+        <?php endfor ?>
         <div>
             <a href="">
                 >>

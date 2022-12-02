@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="css/orderdetail.css">
 </head>
 <body>
+
+    <?php include "navbar.php" ?>
+
     <div id="detail">
         <h2>
             Order Detail
