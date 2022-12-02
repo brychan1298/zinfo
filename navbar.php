@@ -44,7 +44,7 @@
                     <button>Log In</button>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="cart.php">
                         <img src="Asset/cart.png" alt="">
                     </a>
                 </li>

@@ -1,0 +1,212 @@
+body{
+    max-height: 100%;
+    background-color: #ECF3FF;
+}
+
+*{  
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    
+}
+
+.myCart{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.3em;
+    margin-top: 60px;
+}
+
+.myCart>img{
+    width: 2%;
+    margin-right: 10px;
+}
+
+.checkAllBox{
+    margin: 1% 5%;
+    font-size: 1.2em;
+}
+
+.cart-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 5%;
+    background-color: white;
+    padding: 1%;
+}
+
+.cart-event{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+}
+
+.cart-poster{
+    width: 15%;
+    height: auto;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
+.cart-check{
+    margin: auto 0;
+}
+
+.flexColumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.flexColumn > h2{
+    font-size: 1.2em;
+}
+
+.event-type > div{
+    background-color: #D9D9D9;
+    color: #0066FF;
+    border-radius: 20px;
+    padding: 1% 4%;
+    width: 25%;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.event-list-location, .event-list-date{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    margin-top: 5px;
+    color: #9D9D9D;
+    font-weight: 500;
+}
+
+.event-list-location{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.event-list-location-icon{
+    margin-right: 10px;
+}
+
+.event-list-date{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.event-list-date-icon{
+    margin-right: 10px;
+}
+
+.event-count{
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 30px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 1%;
+    width: 40%;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+.event-count>div>input{
+    border: none;
+    font-size: 1.2em;
+    width: 100%;
+    text-align: center;
+}
+
+.amount{
+    width: 20%;
+}
+
+.event-count button{
+    border: none;
+    border-radius: 50%;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.addButton:hover{
+    box-shadow: 0px 0px 5px rgba(0,0,0, 20%);
+}
+
+.minButton:hover{
+    box-shadow: 0px 0px 5px rgba(0,0,0, 20%);
+}
+
+.qty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.qtys{
+    font-size: 1.2em;
+    color: #9D9D9D;
+}
+
+.pojok-kanan{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.pojok-kanan>img{
+    width: 20%;
+}
+
+.pojok-kanan > h2{
+    color: #0066FF;
+}
+
+.subTotal{
+    margin: 1% 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+#subTotal1{
+    width: 38%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#subTotal1 > p{
+    font-size: 1.4em;
+}
+
+#subTotal1 > h3{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.subTotal h4{
+    font-size: 1.1em;
+    color: #B6B6B6;
+}
+
+.subTotal > button{
+    width: 38%;
+    border: none;
+    background-color: #0066FF;
+    padding: 1% 0;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.3em;
+}
