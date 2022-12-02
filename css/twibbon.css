@@ -1,0 +1,319 @@
+body{
+    max-height: 100%;
+    height: 1000px;
+}
+
+*{  
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    
+}
+
+/* { NAVBAR CSS */
+
+#toggle{
+    visibility: hidden;
+}
+
+#menu > i{
+    font-size: 20px;
+}
+
+nav{
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    display: flex;  
+    padding: 20px 5.5%; 
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0066FF;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .menu-responsive i{
+    display: none;
+    color: #42A7C3;
+    font-size: 80px;
+    cursor: pointer;
+}
+
+nav>div>#ul>li>a{
+    /* font-size: 24px; */
+    padding: 15px;
+    padding-right: 35px;
+    color: white;
+    font-size: 1.4vw;
+    text-decoration: none;
+}
+
+nav li a.active{
+    text-decoration: underline;
+    color: #FFB830;
+}
+
+nav ul li a:hover{
+    color: #FFB830;
+}
+
+#ul2 img{
+    width: 70%;
+}
+
+#login > button{
+    padding: 10px 35px;
+    border: none;
+    border-radius: 20px;
+    color: #0066FF;
+    font-weight: bolder;
+    font-size: 1em;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* NAVBAR CSS } */
+
+
+/* { BANNER CSS */
+#banner{
+    position: relative;
+    margin: 0;
+}
+
+.banner-img{
+    width: 100%;
+}
+
+
+.caroul-circle>span{
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+}
+
+.caroul-circle{
+    left: 50%;
+    top: 90%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    margin: 0;
+}
+
+
+/* BANNER CSS } */
+
+
+/* { EVENT CSS */
+#twibbon{
+    margin-left: 3%;
+    margin-right: 5%;
+    margin-top: 72px;
+}
+
+#twibbon-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+#twibbon-section .twibbon-list{
+    flex: 25%;
+    max-width: 25%;
+    margin-right:-50px;
+}
+
+.twibbon-upper{
+    font-size : 44px;
+    margin-bottom: 30px;
+    font-weight: 500;
+    color: #4B4B4B;
+}
+
+.twibbon-list{
+    border-radius: 20px;
+    margin-bottom: 52px;
+    box-shadow: 0px 10px 30px rgba(38, 45, 118, 20%);
+}
+
+.twibbon-list-img > img{
+    width: 100%;
+}
+
+.twibbon-list-desc{
+    padding: 0 20px 20px 20px;
+}
+
+.twibbon-list-logo, .twibbon-list-time, .twibbon-list-user{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.twibbon-list-logo{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    align-items: center;
+    font-weight: 450;
+    font-size: 19px;
+}
+
+.twibbon-list-logo-icon > img{
+    margin-right: 10px;
+    background-size: 10%;
+    width : 70%;
+    height : 70%;
+}
+
+.twibbon-list-logo-icon, .twibbon-list-time-icon {
+    width: 20%;
+    text-align: center;
+}
+
+.twibbon-list-user-icon{
+    width: 20%;
+    text-align: center;
+}
+
+.twibbon-list-time{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.47);
+    font-size: 19px;
+}
+
+.twibbon-list-time-icon > img{
+    margin-right: 10px;
+    width : 50%;
+    height : 50%;
+}
+
+.twibbon-list-user{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.47);
+    font-size: 19px;
+}
+
+.twibbon-list-user-icon > img{
+    margin-right: 10px;
+    width : 50%;
+    height : 50%;
+}
+
+/* EVENT CSS } */
+
+
+/* { FOOTER CSS */
+#footer-wrapper{
+    background-color: #0066FF;
+    color: white;
+    margin-top: 72px;
+}
+
+#footer-wrapper > h4{
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+#footer{
+    display: flex;
+    padding-top: 4%;
+    padding-left: 5.5%;
+    padding-right: 5.5%;
+    padding-bottom: 4%;
+    justify-content: space-between;
+    background-color: #4D94FF;
+    flex-wrap: wrap;
+}
+
+.footer-box1> img{
+    width: 70%;
+}
+
+.a{
+    width: 20%;
+}
+
+#footer-icon{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 40px;
+}
+
+#footer-icon > span{
+    padding-right: 10px;
+}
+
+.footer-box2 h2{
+    margin-bottom: 25px;
+}
+
+.footer-box2 p{
+    margin-top: 10px;
+}
+
+.footer-box3 a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-box3 h2{
+    margin-bottom: 25px;
+}
+
+.footer-box3 p{
+    margin-top: 10px;
+}
+
+.footer-box4 h2{
+    margin-bottom: 25px;
+}
+
+.footer-box4 p{
+    margin-top: 10px;
+}
+
+.footer-box5 h2{
+    margin-bottom: 25px;
+}
+
+.footer-box5 p{
+    margin-top: 10px;
+}
+
+.footer-follow-us{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.footer-follow-us>div:first-child{
+    margin-right: 10px;
+}
+
+
+/* FOOTER CSS } */
