@@ -23,7 +23,7 @@ if(isset($_POST["signup"]) ) {
     <title>Sign Up</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="css/signup.css">
 </head>
 <body>
     <!-- NAVBAR -->
@@ -231,6 +231,6 @@ if(isset($_POST["signup"]) ) {
 
         <h4>© 2022 ZInfo. All rights reserved.</h4>
     </div>
-    <script src="signup.js"></script>
+    <script src="js/signup.js"></script>
 </body>
 </html>
