@@ -152,7 +152,7 @@ nav ul li a:hover{
 }
 
 .right-wrapper {
-    background-image: url("Asset/bg_login.png");
+    background-image: url("../Asset/bg_login.png");
     display: flex;
     flex-direction: column;
     width: 38%;
