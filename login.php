@@ -32,7 +32,7 @@ if(isset($_POST["login"])) {
     <title>Login</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
     <!-- NAVBAR -->
@@ -233,6 +233,6 @@ if(isset($_POST["login"])) {
 
         <h4>© 2022 ZInfo. All rights reserved.</h4>
     </div>
-    <script src="login.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
