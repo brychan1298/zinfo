@@ -116,6 +116,26 @@ nav ul li a:hover{
     transform: translateX(5px);
 }
 
+#liabsolute{
+    position: relative;
+}
+
+#qty{
+    position: absolute;
+    bottom: 0%;
+    right: 10%;
+    background-color: white;
+    border-radius: 50%;
+    width: 1.2em;
+    height: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    color:#0066FF
+}
+
 @media(max-width:425px){
     .a{
         width: 100%;

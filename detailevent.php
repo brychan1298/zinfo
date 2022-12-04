@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/detailevent.css">
-    <script src="js/detailevent.js"></script>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 </head>
 <body>
     <?php
@@ -92,10 +93,10 @@
         <div id="detail-event-right">
             <div id="detail-event-right-child">
                 <div id="detail-event-right-1">
-                    <div id="event-start">
+                    <!-- <div id="event-start">
                         <div>Start</div>
                         <div>17:00 WIB</div>
-                    </div>
+                    </div> -->
 
                     <?php  
                         $orgDate = $detailed["Tanggal"];  
@@ -116,26 +117,31 @@
                         </div>
                     </div>
     
-                    <div id="event-finish">
+                    <!-- <div id="event-finish">
                         <div>
                             Finish
                         </div>
                         <div>
                             21:00 WIB
                         </div>
-                    </div>
+                    </div> -->
                 </div>
     
                 <div id="detail-event-right-2">
                     <h2>
-                        Rp <?= $detailed['Harga'] ?>,00
+                        
+                        <?php 
+                            $hasil = "Rp " . number_format($detailed["Harga"],2,',','.');
+                            echo $hasil;
+                        ?>
                     </h2>
                     <div id="event-count">
                         <div>
                             <button id="minButton" onclick="reduceAmount()">-</button>
                         </div>
                         <div id="amount">
-                            <input type="text" value="0" id="textAmount">
+                            <input type="hidden" id="eventID" name="eventID" value="<?= $EventID ?>">
+                            <input type="text" value="0" id="textAmount" name="qty">
                         </div>
                         <div>
                             <button id="addButton" onclick="addAmount()">+</button>
@@ -148,9 +154,15 @@
                         <img src="Asset/bell-blue.png" alt="">
                     </div>
                     <div id="detail-event-right-3-2">
-                        <button>
+                        <?php if(isset($_SESSION['login'])) : ?>
+                        <button id="addtocart">
                             Add to Cart
                         </button>
+                        <?php else : ?>
+                        <button onclick="location.href='login.php'">
+                            Add to Cart
+                        </button>
+                        <?php endif ?>
                     </div>
                     <div id="detail-event-right-3-3">
                         <button>
@@ -162,5 +174,7 @@
         </div>
         
     </div>
+    <?php include "footer.php" ?>
+    <script src="js/detailevent.js"></script>
 </body>
 </html>

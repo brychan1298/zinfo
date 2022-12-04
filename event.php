@@ -110,7 +110,12 @@
 
                             <div class="event-list-price">
                                 <div class="event-list-price-p">
-                                    <p>Rp <?= $event["Harga"] ?>,00</p>
+                                    <p>
+                                        <?php 
+                                            $hasil = "Rp " . number_format($event["Harga"],2,',','.');
+                                            echo $hasil;
+                                        ?>
+                                    </p>
                                 </div>
                                 <div class="event-list-price-ticket">
                                     <p>

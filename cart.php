@@ -8,6 +8,23 @@
     <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
+    <?php
+        include 'DBconn.php';
+        session_start();
+        $total_cart = 0;
+        $UserID = $_SESSION["id"];
+        $carts = mysqli_query($conn, "SELECT * FROM cart c 
+        JOIN `event` e ON c.EventID = e.EventID 
+        JOIN kategori k ON k.KategoriID = e.KategoriID
+        WHERE UserID = '$UserID'") or die(mysqli_error($conn));
+        
+        if(isset($_GET['cartID'])){
+            $cartID = $_GET['cartID'];
+            mysqli_query($conn, "DELETE FROM cart WHERE id = '$cartID'")or die(mysqli_error($conn));
+            header('location:cart.php');
+        }
+    ?>
+   
     <?php include "navbar.php" ?>
     <div class="myCart">
         <img src="Asset/blackcart.png" alt="">
@@ -19,22 +36,23 @@
     </div>
 
     <div id="cart">
+        <?php foreach($carts as $cart): ?>
         <div class="cart-list">
             <div class="cart-event">
                 <div class="cart-check">
                     <input type="checkbox" name="" id="">
                 </div>
 
-                <img src="Asset/poster/10.jpeg" alt=""  class="cart-poster">
+                <img src="Asset/poster/<?= $cart["GambarPoster"] ?>" alt=""  class="cart-poster">
 
                 <div class="flexColumn">
                     <div class="event-type">
                         <div>
-                            Concert
+                            <?php echo $cart["Kategori"]; ?>
                         </div>  
                     </div>
                     <h2>
-                        Stray Kids 2nd World Tour “Maniac” in Jakarta
+                        <?= $cart["Nama"] ?>
                     </h2>
                     <div class="event-list-location">
                         <div class="event-list-location-icon">
@@ -42,7 +60,7 @@
                         </div>
                         <div>
                             <p>
-                                Beach City International Stadium
+                                <?= $cart["Alamat"] ?>
                             </p>
                         </div>
                     </div>
@@ -53,7 +71,7 @@
                         </div>
                         <div>
                             <p>
-                                November 12th 2022
+                                <?= $cart['Tanggal'] ?>
                             </p>
                         </div>
                     </div>
@@ -64,10 +82,10 @@
                 <h1 class="qtys">Quantity</h1>
                 <div class="event-count">
                     <div>
-                        <button class="minButton" onclick="reduceAmount()">-</button>
+                        <button class="minButton" onclick="reduceAmount($cart['id'])">-</button>
                     </div>
                     <div class="amount">
-                        <input type="text" value="0" class="textAmount">
+                        <input type="text" value="<?= $cart['qty'] ?>" class="textAmount">
                     </div>
                     <div>
                         <button class="addButton" onclick="addAmount()">+</button>
@@ -77,12 +95,16 @@
             
 
             <div class="pojok-kanan">
-                <img src="Asset/deletecart.png" alt="">
+                <img src="Asset/deletecart.png" alt="" class="" onclick="deleteCart(<?= $cart['id'] ?>)">
                 <h2>
-                    Rp 398.000,00
+                    <?php 
+                        $hasil = "Rp " . number_format($cart['Harga'] * $cart['qty'],2,',','.');
+                        echo $hasil;
+                    ?>
                 </h2>
             </div>
         </div>
+        <?php endforeach; ?>
     </div>
 
     <div class="subTotal">
@@ -99,5 +121,8 @@
             Payment
         </button>
     </div>
+
+    <?php include "footer.php" ?>
+    <script src="js/cart.js"></script>
 </body>
 </html>
