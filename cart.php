@@ -23,6 +23,18 @@
             mysqli_query($conn, "DELETE FROM cart WHERE id = '$cartID'")or die(mysqli_error($conn));
             header('location:cart.php');
         }
+
+        if(isset($_GET['deleteCartID'])){
+            $cartID = $_GET['deleteCartID'];
+            mysqli_query($conn, "UPDATE cart SET qty = qty - 1 WHERE id = '$cartID'")or die(mysqli_error($conn));
+            header('location:cart.php');
+        }
+
+        if(isset($_GET['addCartID'])){
+            $cartID = $_GET['addCartID'];
+            mysqli_query($conn, "UPDATE cart SET qty = qty + 1 WHERE id = '$cartID'")or die(mysqli_error($conn));
+            header('location:cart.php');
+        }
     ?>
    
     <?php include "navbar.php" ?>
@@ -32,7 +44,7 @@
     </div>
 
     <div class="checkAllBox">
-        <input type="checkbox" name="" id="checkAll"> Check All
+        <input type="checkbox" name="" onclick="checkAll(this)" id="checkAll"> Check All
     </div>
 
     <div id="cart">
@@ -40,7 +52,7 @@
         <div class="cart-list">
             <div class="cart-event">
                 <div class="cart-check">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" name="checkCart[]" id="" class="checkCart" onchange="addCheck(<?= $cart['Harga'] ?>)">
                 </div>
 
                 <img src="Asset/poster/<?= $cart["GambarPoster"] ?>" alt=""  class="cart-poster">
@@ -82,17 +94,17 @@
                 <h1 class="qtys">Quantity</h1>
                 <div class="event-count">
                     <div>
-                        <button class="minButton" onclick="reduceAmount($cart['id'])">-</button>
+                        <button class="minButton" onclick="reduceAmount(<?= $cart['id'] ?>,<?= $cart['qty'] ?>)">-</button>
                     </div>
                     <div class="amount">
                         <input type="text" value="<?= $cart['qty'] ?>" class="textAmount">
                     </div>
                     <div>
-                        <button class="addButton" onclick="addAmount()">+</button>
+                        <button class="addButton" onclick="addAmount(<?= $cart['id'] ?>,<?= $cart['qty'] ?>)">+</button>
                     </div>
                 </div>
             </div>
-            
+            <input type="hidden" class="hargaEvent" value="<?=$cart['Harga'] * $cart['qty']?>">
 
             <div class="pojok-kanan">
                 <img src="Asset/deletecart.png" alt="" class="" onclick="deleteCart(<?= $cart['id'] ?>)">
@@ -110,14 +122,15 @@
     <div class="subTotal">
         <div id="subTotal1">
             <p>Subtotal</p>
-            <h3>Rp 0,00</h3>
+            <h3 id="totalPayment">0</h3>
+            <input type="hidden" name="" id="totalPaymentHidden" value="0">
         </div>
     </div>
     <div class="subTotal">
         <h4>Please recheck your ticket before the ticket is checked out</h4>
     </div>
     <div class="subTotal">
-        <button>
+        <button onclick="location.href='payment.php'">
             Payment
         </button>
     </div>
