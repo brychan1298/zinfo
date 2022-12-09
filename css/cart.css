@@ -145,7 +145,7 @@ body{
 
 .event-count>div>input{
     border: none;
-    font-size: 1.2em;
+    font-size: 1em;
     width: 100%;
     text-align: center;
 }
@@ -157,7 +157,7 @@ body{
 .event-count button{
     border: none;
     border-radius: 50%;
-    padding: 6px 12px;
+    padding: 0.7em;
     cursor: pointer;
 }
 
@@ -222,8 +222,8 @@ body{
     font-weight: 600;
 }
 
-.subTotal h4{
-    font-size: 1.1em;
+.subTotal>h4{
+    font-size: 5%;
     color: #B6B6B6;
 }
 
