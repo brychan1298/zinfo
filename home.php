@@ -78,7 +78,7 @@
             </div>
             <div class="icon-fitur">
                 <div class="icon-fitur-box">
-                    <a href="">
+                    <a href="certificate.php">
                         <img src="Asset/icon-certificate.png" alt="">
                     </a>
                 </div>

@@ -1,0 +1,120 @@
+body{
+    max-height: 100%;
+}
+
+*{  
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+
+}
+
+#profile{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4% 8.5%;
+    justify-content: space-between;
+}
+
+#profile #left-profile{
+    flex: 35%;
+    max-width: 35%;
+}
+
+#left-profile{
+    text-align: center;
+    box-shadow: 0px 0px 5px rgba(0,0,0, 20%);
+    border-radius: 20px;
+    padding: 3% 0% 8% 0%;
+}
+
+#left-profile>div>img{
+    width: 10em;
+    height: 10em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#left-profile>div>h3{
+    font-size: 1.8em;
+    margin-bottom: 50px;
+}
+
+.profile-menu{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px 10%;
+    padding: 3%;
+    font-size: 1.2em;
+}
+
+.profile-menu img{
+    flex: 6%;
+    max-width: 6%;
+    margin-right: 10px;
+}
+
+.active{
+    background-color: #2D8EFF;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0,0,0, 20%);
+}
+
+#profile #right-profile{
+    flex: 60%;
+    max-width: 60%;
+}
+
+#right-profile{
+    box-shadow: 0px 0px 5px rgba(0,0,0, 20%);
+    padding: 3% 4%;
+}
+
+#right-profile p{
+    font-size: 1.6em;
+    font-weight: 500;
+    color: #2D8EFF;
+    margin-bottom: 40px;
+}
+
+.input-control{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    padding: 0.4% 1%;
+}
+
+#right-profile label{
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.input-control input{
+    border: none;
+    width: 90%;
+}
+
+.input-control img{
+    width: 5%;
+}
+
+#button{
+    text-align: center;
+    margin-top: 40px;
+}
+
+#saveButton{
+    background-color: #2D8EFF;
+    color: white;
+    padding: 2% 6%;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.3em;
+    cursor: pointer;
+}

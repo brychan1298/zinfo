@@ -15,7 +15,9 @@
         if(isset($_SESSION["login"])):
             $UserID = $_SESSION["id"];
             $query = mysqli_query($conn, "SELECT * FROM cart WHERE UserID = '$UserID'");
+            $profile = mysqli_query($conn, "SELECT * FROM `user` WHERE UserID = '$UserID'");
             $total_cart = mysqli_num_rows($query);
+            $profiles = mysqli_fetch_assoc($profile);
         endif
     ?>
     <nav id="nav">
@@ -63,8 +65,9 @@
                     <li id="login">
                         <button>
                             <?php 
-                                $Nama = '<pre>' . print_r($_SESSION["user"], TRUE) . '</pre>';
-                                echo $Nama; 
+                                // $Nama = '<pre>' . print_r($_SESSION["user"], TRUE) . '</pre>';
+                                $nama = $profiles['Nama'];
+                                echo $nama; 
                             ?>
                         </button>
                     </li>
@@ -88,7 +91,7 @@
             <div class="sub-menu">
                 <div class="user-info">
                 <?php if(isset($_SESSION["login"])): ?>
-                    <a href="" class="sub-menu-link">
+                    <a href="profile.php" class="sub-menu-link">
                         <p>Profile</p>
                         <span>></span>
                     </a>
