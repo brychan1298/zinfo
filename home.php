@@ -46,7 +46,7 @@
         <div class="flexed-fitur">
             <div class="icon-fitur">
                 <div class="icon-fitur-box">
-                    <a href="event.php">
+                    <a href="calendar.php">
                         <img src="Asset/icon-calendar.png" alt="">
                     </a>
                 </div>

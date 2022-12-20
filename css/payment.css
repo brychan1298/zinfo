@@ -162,15 +162,18 @@ nav{
     margin-bottom: 15px;
 }
 
-#payment-child2{
+.payment-child2{
     color: #1774FF;
     font-weight: 500;
 }
 
-#payment-child3{
+.payment-child3{
     color: #9D9D9D;
     margin-top: 5px;
     font-size: 0.9em;
+}
+
+.payment-child3:last-child{
     margin-bottom: 28px;
 }
 

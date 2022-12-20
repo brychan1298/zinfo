@@ -10,13 +10,51 @@
 <body>
 
     <?php include "navbar.php" ?>
-    
+    <?php
+        session_start();
+        include "DBconn.php";
+    ?>
     <div id="payment">
         <div id="payment-1">
             <h2>Payment</h2>
             <p id="payment-child1">Make a Payment of:</p>
-            <p id="payment-child2">Rp 398.000,00</p>
-            <p id="payment-child3">(2x Stray Kids 2nd World Tour Ticket - Rp 199.999,00)</p>
+            <p class="payment-child2">
+                <?php
+                    if(isset($_POST['totalPayment'])){
+                        $hasil = "Rp " . number_format($_POST['totalPayment'],2,',','.'); 
+                        echo $hasil;
+                    }else if(isset($_POST['eventID'])){
+                        $eventID = $_POST['eventID'];
+                        $events = mysqli_query($conn, "SELECT * FROM `event`
+                                                    where EventID='$eventID'") or die(mysqli_error($conn));
+                        $event = mysqli_fetch_assoc($events);
+                        echo "Rp " . number_format($_POST['qty']*$event['Harga'],2,',','.');
+                    }
+                ?>
+            </p>
+            <?php
+                if(isset($_POST['checkCart'])):
+                    foreach ($_POST['checkCart'] as $cart):
+                        $events = mysqli_query($conn, "SELECT * FROM cart c
+                                                    JOIN event e ON e.EventID = c.EventID 
+                                                    where id='$cart'") or die(mysqli_error($conn));
+                        $event = mysqli_fetch_assoc($events);
+            ?>
+                        <div class="payment-child3">(<?=$event['qty']?>X <?=$event['Nama']?> - <b><?="Rp " . number_format(($event['qty']*$event['Harga']),2,',','.')?></b>)</div>
+            <?php
+                    endforeach;
+                endif;
+            ?>
+
+            <?php
+                if(isset($_POST['eventID'])):
+                    
+            ?>
+                    <div class="payment-child3">(<?=$_POST['qty']?>X <?=$event['Nama']?> - <b><?="Rp " . number_format(($_POST['qty']*$event['Harga']),2,',','.')?></b>)</div>
+            <?php
+                    
+                endif;
+            ?>
         </div>
 
         <div id="payment-2">

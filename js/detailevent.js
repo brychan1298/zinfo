@@ -43,3 +43,17 @@ $(document).ready(function(){
     });
 });
 
+window.onload = function() {
+    
+
+    const btn = document.getElementById('directOrder');
+    btn.onclick = () => {
+        var qty = document.getElementById('textAmount').value;
+
+        if(qty == 0){
+            alert("Silahkan masukkan jumlah event");
+            return false;
+        };
+        document.getElementById('formOrder').submit();
+    }
+}

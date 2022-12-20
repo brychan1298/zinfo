@@ -126,7 +126,7 @@
                         </div>
                     </div> -->
                 </div>
-    
+                <form action="payment.php" method="POST" id="formOrder">
                 <div id="detail-event-right-2">
                     <h2>
                         
@@ -137,14 +137,14 @@
                     </h2>
                     <div id="event-count">
                         <div>
-                            <button id="minButton" onclick="reduceAmount()">-</button>
+                            <div id="minButton" onclick="reduceAmount()">-</div>
                         </div>
                         <div id="amount">
                             <input type="hidden" id="eventID" name="eventID" value="<?= $EventID ?>">
                             <input type="text" value="0" id="textAmount" name="qty">
                         </div>
                         <div>
-                            <button id="addButton" onclick="addAmount()">+</button>
+                            <div id="addButton" onclick="addAmount()">+</div>
                         </div>
                     </div>
                 </div>
@@ -165,11 +165,18 @@
                         <?php endif ?>
                     </div>
                     <div id="detail-event-right-3-3">
-                        <button>
+                    <?php if(isset($_SESSION['login'])) : ?>
+                        <button id="directOrder">
                             Order
                         </button>
+                        <?php else : ?>
+                        <button onclick="location.href='login.php'">
+                            Order
+                        </button>
+                    <?php endif ?>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
         
