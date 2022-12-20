@@ -13,6 +13,7 @@
     <?php
         session_start();
         include "DBconn.php";
+        $listOfAllCartID = [];
     ?>
     <div id="payment">
         <div id="payment-1">
@@ -24,6 +25,7 @@
                         $hasil = "Rp " . number_format($_POST['totalPayment'],2,',','.'); 
                         echo $hasil;
                     }else if(isset($_POST['eventID'])){
+                        array_push($listOfAllCartID,$_POST['eventID']);
                         $eventID = $_POST['eventID'];
                         $events = mysqli_query($conn, "SELECT * FROM `event`
                                                     where EventID='$eventID'") or die(mysqli_error($conn));
@@ -35,6 +37,7 @@
             <?php
                 if(isset($_POST['checkCart'])):
                     foreach ($_POST['checkCart'] as $cart):
+                        array_push($listOfAllCartID,$cart);
                         $events = mysqli_query($conn, "SELECT * FROM cart c
                                                     JOIN event e ON e.EventID = c.EventID 
                                                     where id='$cart'") or die(mysqli_error($conn));
@@ -84,12 +87,22 @@
         <div id="payment-4">
             Note : Please keep your payment evidence
         </div>
-
-        <div id="payment-5">
-            <button>
-                Confirm
-            </button>
-        </div>
+        
+        <form method="POST" action="uploadproof.php">
+            <div id="payment-5">
+                    <?php
+                        foreach ($listOfAllCartID as $cartID):
+                    ?>
+                    <input type="hidden" name="listCartID[]" value="<?=$cartID?>">
+                    <?php
+                        endforeach
+                    ?>
+                    
+                    <button id="confirm">
+                        Confirm
+                    </button>
+            </div>
+        </form>
     </div>
 
     <?php include "footer.php" ?>
