@@ -119,8 +119,8 @@ nav ul li a:hover{
 
 /* { EVENT CSS */
 #twibbon{
-    margin-left: 3%;
-    margin-right: 5%;
+    margin-left: 12%;
+    margin-right: 12%;
     margin-top: 72px;
 }
 
@@ -128,7 +128,6 @@ nav ul li a:hover{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    
 }
 
 #twibbon-section .twibbon-list{
@@ -138,7 +137,7 @@ nav ul li a:hover{
 }
 
 .twibbon-upper{
-    font-size : 44px;
+    font-size : 36px;
     margin-bottom: 30px;
     font-weight: 500;
     color: #4B4B4B;
@@ -148,10 +147,11 @@ nav ul li a:hover{
     border-radius: 20px;
     margin-bottom: 52px;
     box-shadow: 0px 10px 30px rgba(38, 45, 118, 20%);
+    cursor: pointer;
 }
 
 .twibbon-list-img > img{
-    width: 100%;
+    max-width: 100%;
 }
 
 .twibbon-list-desc{
