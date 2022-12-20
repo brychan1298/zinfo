@@ -35,8 +35,8 @@ function signup($data) {
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     // tambahkan user baru ke database
-    mysqli_query($conn, "INSERT INTO user VALUES
-        ('', '$username', '$email', '$password', '', '', '$phone')");
+    mysqli_query($conn, "INSERT INTO user(`Nama`, `Email`, `Password`, `TanggalLahir`, `JenisKelamin`, `NoTelp`) VALUES
+        ('$username', '$email', '$password', '1970-11-02', '', '$phone')");
 
     return mysqli_affected_rows($conn);
 }

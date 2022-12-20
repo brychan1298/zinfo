@@ -53,6 +53,6 @@
             <button>Cari Event Lain</button>
         </div>
     </div>
-    
+    <?php include "footer.php" ?>
 </body>
 </html>

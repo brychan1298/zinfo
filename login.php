@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'functions.php';
 
 if(isset($_POST["login"])) {
@@ -13,6 +14,10 @@ if(isset($_POST["login"])) {
         $row = mysqli_fetch_assoc($result);
 
         if(password_verify($password, $row["Password"])) {
+            // Set Session for User
+            $_SESSION["login"] = true;
+            $_SESSION["user"] = $row["Nama"];
+            $_SESSION["id"] = $row["UserID"];
             header("Location: home.php");
             exit;
         }

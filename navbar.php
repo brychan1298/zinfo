@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
+    <?php
+        include 'DBconn.php';
+        session_start();
+        $total_cart = 0;
+        if(isset($_SESSION["login"])):
+            $UserID = $_SESSION["id"];
+            $query = mysqli_query($conn, "SELECT * FROM cart WHERE UserID = '$UserID'");
+            $profile = mysqli_query($conn, "SELECT * FROM `user` WHERE UserID = '$UserID'");
+            $total_cart = mysqli_num_rows($query);
+            $profiles = mysqli_fetch_assoc($profile);
+        endif
+    ?>
     <nav id="nav">
         <div>
             <ul id="ul">
@@ -40,14 +52,35 @@
         
         <div>
             <ul id="ul2">
-                <li id="login">
-                    <button>Log In</button>
-                </li>
-                <li>
-                    <a href="cart.php">
-                        <img src="Asset/cart.png" alt="">
-                    </a>
-                </li>
+                <?php if(!isset($_SESSION["login"])): ?>
+                    <li id="login" onclick="location.href = 'login.php'">
+                        <button>Log In</button>
+                    </li>
+                    <li>
+                        <a href="login.php">
+                            <img src="Asset/cart.png" alt="">
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li id="login">
+                        <button>
+                            <?php 
+                                // $Nama = '<pre>' . print_r($_SESSION["user"], TRUE) . '</pre>';
+                                $nama = $profiles['Nama'];
+                                echo $nama; 
+                            ?>
+                        </button>
+                    </li>
+                    <li id="liabsolute" onclick="location.href='cart.php'">
+                        <a href="cart.php">
+                            <img src="Asset/cart.png" alt="">
+                        </a>
+                        <div id="qty">
+                            <?= $total_cart ?>
+                        </div>
+                    </li>
+                <?php endif ?>
+                
                 <li>
                     <img src="Asset/profil.png" alt="" onclick="toggleMenu()">
                 </li>
@@ -57,7 +90,8 @@
         <div class="sub-menu-wrap" id="subMenu">
             <div class="sub-menu">
                 <div class="user-info">
-                    <a href="" class="sub-menu-link">
+                <?php if(isset($_SESSION["login"])): ?>
+                    <a href="profile.php" class="sub-menu-link">
                         <p>Profile</p>
                         <span>></span>
                     </a>
@@ -65,10 +99,17 @@
                         <p>History</p>
                         <span>></span>
                     </a>
-                    <a href="" class="sub-menu-link">
+                    <a href="logout.php" class="sub-menu-link">
                         <p>Log Out</p>
                         <span>></span>
                     </a>
+                <?php else: ?>
+                    <a href="login.php" class="sub-menu-link">
+                        <p>
+                            Login
+                        </p>
+                    </a>
+                <?php endif ?>
                 </div>
             </div>
         </div>

@@ -180,7 +180,8 @@ body{
 #detail-event-right-1{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
 
 #detail-event-right-2{
@@ -217,11 +218,12 @@ body{
     width: 20%;
 }
 
-#event-count button{
+#event-count #minButton,#addButton{
     border: none;
     border-radius: 50%;
-    padding: 6px 12px;
+    padding: 5px 9px;
     cursor: pointer;
+    background-color: #E6E6E6;
 }
 
 #addButton:hover{
@@ -264,16 +266,19 @@ body{
     width: 100%;
     border: 1px solid #006DEC;
     border-radius: 14px;
-    padding: 5% 3%;
+    padding: 7% 3%;
     background-color: white;
+    color: #006DEC;
+    cursor: pointer;
 }
 
 #detail-event-right-3-3 > button{
     width: 100%;
     border: 1px solid white;
     border-radius: 14px;
-    padding: 5% 3%;
+    padding: 7% 3%;
     background-color: #006DEC;
     color: white;
+    cursor: pointer;
 }
 

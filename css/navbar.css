@@ -11,7 +11,7 @@ nav{
     position: sticky;
     left: 0;
     top: 0;
-    z-index: 1;
+    z-index: 5;
     display: flex;  
     padding: 3px 7%; 
     justify-content: space-between;
@@ -114,6 +114,26 @@ nav ul li a:hover{
 .sub-menu-link:hover span{
     font-weight: 500;
     transform: translateX(5px);
+}
+
+#liabsolute{
+    position: relative;
+}
+
+#qty{
+    position: absolute;
+    bottom: 0%;
+    right: 10%;
+    background-color: white;
+    border-radius: 50%;
+    width: 1.2em;
+    height: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    color:#0066FF
 }
 
 @media(max-width:425px){
