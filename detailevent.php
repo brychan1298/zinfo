@@ -155,18 +155,18 @@
                     </div>
                     <div id="detail-event-right-3-2">
                         <?php if(isset($_SESSION['login'])) : ?>
-                        <button id="addtocart">
+                        <div id="addtocart">
                             Add to Cart
-                        </button>
+                        </div>
                         <?php else : ?>
-                        <button onclick="location.href='login.php'">
+                        <div onclick="location.href='login.php'">
                             Add to Cart
-                        </button>
+                        </div>
                         <?php endif ?>
                     </div>
                     <div id="detail-event-right-3-3">
                     <?php if(isset($_SESSION['login'])) : ?>
-                        <button id="directOrder">
+                        <button id="directOrder" type="submit">
                             Order
                         </button>
                         <?php else : ?>

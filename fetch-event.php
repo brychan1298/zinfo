@@ -4,7 +4,7 @@
     $UserID = $_SESSION["id"];
 
     $json = array();
-    $result = mysqli_query($conn, "SELECT * FROM reminder r 
+    $result = mysqli_query($conn, "SELECT DISTINCT Nama,Tanggal FROM reminder r 
                             JOIN `event` e ON e.EventID = r.EventID
                             where UserID='$UserID'");
 
