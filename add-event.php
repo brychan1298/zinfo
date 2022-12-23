@@ -5,7 +5,6 @@ session_start();
 $eventID = isset($_POST['eventID']) ? $_POST['eventID'] : "";
 $UserID = $_SESSION["id"];
 $query = "INSERT INTO reminder(UserID,EventID) VALUES($UserID,$eventID)";
-echo "<script>alert('goblok')</script>";
 mysqli_query($conn, $query) or die(mysqli_error($conn));
 
 ?>
