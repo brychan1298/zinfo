@@ -151,7 +151,19 @@
     
                 <div id="detail-event-right-3">
                     <div id="detail-event-right-3-1">
-                        <img src="Asset/bell-blue.png" alt="">
+                        <?php
+                            $UserID = $_SESSION["id"];
+                            $query = mysqli_query($conn,"SELECT * FROM reminder 
+                                                        WHERE EventID='$EventID'
+                                                        AND UserID='$UserID'");
+                            if(mysqli_num_rows($query)==0):
+                        ?>
+                            <img src="Asset/bell-blue.png" alt="" class="remind">
+                            <input type="hidden" class="remindID" value="<?=$EventID?>">
+                        <?php else :?>
+                            <img src="Asset/reminded-bell.png" alt="" class="delremind">
+                            <input type="hidden" class="delremindID" value="<?=$EventID?>">
+                        <?php endif?>
                     </div>
                     <div id="detail-event-right-3-2">
                         <?php if(isset($_SESSION['login'])) : ?>

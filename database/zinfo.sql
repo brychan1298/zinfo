@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 20, 2022 at 03:45 PM
+-- Generation Time: Dec 23, 2022 at 08:04 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.19
 
@@ -52,8 +52,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `UserID`, `EventID`, `qty`) VALUES
-(28, 2, 8, 1),
-(29, 2, 7, 2);
+(34, 2, 8, 1);
 
 -- --------------------------------------------------------
 
@@ -209,7 +208,11 @@ CREATE TABLE `reminder` (
 --
 
 INSERT INTO `reminder` (`ReminderID`, `UserID`, `EventID`) VALUES
-(1, 2, 5);
+(1, 2, 5),
+(2, 2, 5),
+(3, 1, 4),
+(4, 1, 5),
+(13, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -229,7 +232,12 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`transactionID`, `userID`, `buktiPembayaran`, `status`) VALUES
-(3, 1, NULL, 'BELUM');
+(4, 2, NULL, 'BELUM'),
+(5, 2, 'bukti5.png', 'SUDAH'),
+(6, 1, NULL, 'BELUM'),
+(7, 1, 'bukti7.png', 'SUDAH'),
+(8, 1, NULL, 'BELUM'),
+(9, 1, 'bukti9.png', 'SUDAH');
 
 -- --------------------------------------------------------
 
@@ -250,9 +258,11 @@ CREATE TABLE `transactionDetail` (
 --
 
 INSERT INTO `transactionDetail` (`transactiondetailID`, `transactionID`, `eventID`, `qty`, `kodeBooking`) VALUES
-(1, 3, 15, 1, NULL),
-(2, 3, 33, 2, NULL),
-(3, 3, 8, 2, NULL);
+(4, 4, 8, 1, NULL),
+(5, 4, 7, 2, NULL),
+(6, 5, 5, 1, NULL),
+(7, 7, 4, 1, NULL),
+(8, 9, 5, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -368,7 +378,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `chat`
@@ -392,19 +402,19 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT for table `reminder`
 --
 ALTER TABLE `reminder`
-  MODIFY `ReminderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ReminderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `transactionDetail`
 --
 ALTER TABLE `transactionDetail`
-  MODIFY `transactiondetailID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `transactiondetailID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`

@@ -1,11 +1,11 @@
 <?php
-require_once "db.php";
+include "DBconn.php";
 
-$id = $_POST['id'];
-$sqlDelete = "DELETE from tbl_events WHERE id=".$id;
+session_start();
+$eventID = isset($_POST['deleventID']) ? $_POST['deleventID'] : "";
+$UserID = $_SESSION["id"];
+echo "<script>alert('goblok')</script>";
+$query = "DELETE FROM reminder WHERE UserID='$UserID' AND EventID='$eventID'";
 
-mysqli_query($conn, $sqlDelete);
-echo mysqli_affected_rows($conn);
-
-mysqli_close($conn);
+mysqli_query($conn, $query) or die(mysqli_error($conn));
 ?>

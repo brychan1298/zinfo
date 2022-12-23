@@ -56,4 +56,38 @@ window.onload = function() {
         };
         document.getElementById('formOrder').submit();
     }
+
+    var events = document.getElementsByClassName('remind')
+    var eventIDs = document.getElementsByClassName('remindID')
+
+    for (let index = 0; index < events.length; index++) {
+        events[index].onclick = function(){
+            $.ajax({
+                type: 'POST',
+                url: "add-event.php",
+                data: {eventID: eventIDs[index].value},
+                success: function(hasil) {
+                    alert("Event berhasil ditambahkan ke reminder");
+                }
+            });
+            events[index].src = 'Asset/reminded-bell.png';
+        }
+    }
+
+    var delevents = document.getElementsByClassName('delremind')
+    var deleventIDs = document.getElementsByClassName('delremindID')
+
+    for (let index = 0; index < delevents.length; index++) {
+        delevents[index].onclick = function(){
+            $.ajax({
+                type: 'POST',
+                url: "delete-event.php",
+                data: {deleventID: deleventIDs[index].value},
+                success: function(hasil) {
+                    alert("Event telah dihapus dari reminder anda");
+                }
+            });
+            delevents[index].src = 'Asset/bell-blue.png';
+        }
+    }
 }
