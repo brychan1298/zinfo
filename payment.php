@@ -90,12 +90,24 @@
         
         <form method="POST" action="uploadproof.php">
             <div id="payment-5">
+                    
                     <?php
-                        foreach ($listOfAllCartID as $cartID):
+                        if(isset($_POST['checkCart'])):
+                            foreach ($listOfAllCartID as $cartID):
                     ?>
-                    <input type="hidden" name="listCartID[]" value="<?=$cartID?>">
+                            <input type="hidden" name="listCartID[]" value="<?=$cartID?>">
                     <?php
-                        endforeach
+                            endforeach;
+                        endif
+                            
+                    ?>
+                    <?php
+                        if(isset($_POST['eventID'])):
+                    ?>
+                            <input type="hidden" name="eventID" value="<?=$_POST['eventID']?>">
+                            <input type="hidden" name="qty" value="<?=$_POST['qty']?>">
+                    <?php
+                        endif;
                     ?>
                     
                     <button id="confirm">

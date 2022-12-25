@@ -1,15 +1,10 @@
 <?php
-require_once "DBconn.php";
+include "DBconn.php";
 
-$title = isset($_POST['title']) ? $_POST['title'] : "";
-$start = isset($_POST['start']) ? $_POST['start'] : "";
-$end = isset($_POST['end']) ? $_POST['end'] : "";
+session_start();
+$eventID = isset($_POST['eventID']) ? $_POST['eventID'] : "";
+$UserID = $_SESSION["id"];
+$query = "INSERT INTO reminder(UserID,EventID) VALUES($UserID,$eventID)";
+mysqli_query($conn, $query) or die(mysqli_error($conn));
 
-$sqlInsert = "INSERT INTO tbl_events (title,start,end) VALUES ('".$title."','".$start."','".$end ."')";
-
-$result = mysqli_query($conn, $sqlInsert);
-
-if (! $result) {
-    $result = mysqli_error($conn);
-}
 ?>

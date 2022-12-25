@@ -7,6 +7,7 @@
     <title>Beranda</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
@@ -111,7 +112,7 @@
                                 <img src="Asset/location-blue.png" alt="">
                             </div>
                             <div>
-                                <?= $trend["Lokasi"] ?>
+                                <b><?= $trend["Lokasi"] ?></b>
                             </div>
                         </div>
                         <div class="trending-blurred-child2">
@@ -119,13 +120,36 @@
                                 <img src="Asset/date-blue.png" alt="">
                             </div>
                             <div>
-                                12 November 2022
+                                <b>
+                                <?php 
+                                    $orgDate = $trend["Tanggal"];  
+                                    $newDateMonth = date("M", strtotime($orgDate));
+                                    $newDateDay = date("D", strtotime($orgDate));
+                                    $newDateDate = date("d", strtotime($orgDate));
+                                    $newDateYear = date("Y", strtotime($orgDate));
+                                    echo $newDateDay.", ". $newDateDate." ". $newDateMonth." ".$newDateYear;
+                                ?>
+                                </b>
                             </div>
                         </div>
                     </div>
 
                     <div class="trending-blurred-bell">
-                        <img src="Asset/bell-blue.png" alt="">
+                        <?php
+                            $UserID = $_SESSION["id"];
+                            $EventID = $trend['EventID'];
+                            $query = mysqli_query($conn,"SELECT * FROM reminder 
+                                                        WHERE EventID='$EventID'
+                                                        AND UserID='$UserID'");
+                            if(mysqli_num_rows($query)==0):
+                        ?>
+                            <img src="Asset/bell-blue.png" alt="" class="remind">
+                            <input type="hidden" class="remindID" value="<?=$trend['EventID']?>">
+                        <?php else :?>
+                            <img src="Asset/reminded-bell.png" alt="" class="delremind">
+                            <input type="hidden" class="delremindID" value="<?=$trend['EventID']?>">
+                        <?php endif?>
+                        
                     </div>
                 </div>
             <?php 

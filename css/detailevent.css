@@ -262,14 +262,15 @@ body{
     width: 40%;
 }
 
-#detail-event-right-3-2 > button{
+#detail-event-right-3-2 > div{
     width: 100%;
     border: 1px solid #006DEC;
     border-radius: 14px;
-    padding: 7% 3%;
+    padding: 5% 3%;
     background-color: white;
     color: #006DEC;
     cursor: pointer;
+    font-size: 0.9em;
 }
 
 #detail-event-right-3-3 > button{

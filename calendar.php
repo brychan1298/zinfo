@@ -14,9 +14,7 @@ $(document).ready(function () {
     var calendar = $('#calendar').fullCalendar({
         editable: true,
         events: "fetch-event.php",
-        eventBorderColor : "red",
-        displayEventTime: true,
-        height: 500,
+        displayEventTime: false,
         header:{
             left:'prev',
             center:'title',
@@ -24,34 +22,51 @@ $(document).ready(function () {
         },
         selectable: true,
         selectHelper: true,
-        eventDrop: function (event, delta) {
-                    var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-                    var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-                    $.ajax({
-                        url: 'edit-event.php',
-                        data: 'title=' + event.title + '&start=' + start + '&end=' + end + '&id=' + event.id,
-                        type: "POST",
-                        success: function (response) {
-                            displayMessage("Updated Successfully");
-                        }
-                    });
-                },
-        // eventClick: function (event) {
-        //     var deleteMsg = confirm("Do you really want to delete?");
-        //     if (deleteMsg) {
+        // select: function (start, end, allDay) {
+        //     var title = prompt('Event Title:');
+
+        //     if (title) {
+        //         var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+        //         var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+
         //         $.ajax({
+        //             url: 'add-event.php',
+        //             data: 'title=' + title + '&start=' + start + '&end=' + end,
         //             type: "POST",
-        //             url: "delete-event.php",
-        //             data: "&id=" + event.id,
-        //             success: function (response) {
-        //                 if(parseInt(response) > 0) {
-        //                     $('#calendar').fullCalendar('removeEvents', event.id);
-        //                     displayMessage("Deleted Successfully");
-        //                 }
+        //             success: function (data) {
+        //                 displayMessage("Added Successfully");
         //             }
         //         });
+        //         calendar.fullCalendar('renderEvent',
+        //                 {
+        //                     title: title,
+        //                     start: start,
+        //                     end: end,
+        //                     allDay: allDay
+        //                 },
+        //         true
+        //                 );
         //     }
-        // }
+        //     calendar.fullCalendar('unselect');
+        // },
+        
+        editable: true,
+        eventClick: function (event) {
+            var deleteMsg = confirm("Do you really want to delete?");
+            if (deleteMsg) {
+                $.ajax({
+                    type: "POST",
+                    url: "delete-event.php",
+                    data: "&id=" + event.id,
+                    success: function (response) {
+                        if(parseInt(response) > 0) {
+                            $('#calendar').fullCalendar('removeEvents', event.id);
+                            displayMessage("Deleted Successfully");
+                        }
+                    }
+                });
+            }
+        }
 
     });
 });
@@ -63,15 +78,12 @@ function displayMessage(message) {
 </script>
 
 <style>
-body {
-    
-}
 
 #calendar {
     text-align: center;
     font-size: 12px;
     font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-    position: sticky;
+    
     width: 80%;
     z-index: -1;
     margin: 0 auto;
