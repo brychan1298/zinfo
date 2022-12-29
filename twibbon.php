@@ -28,7 +28,7 @@
     </div>
 
 
-     <!-- EVENT -->
+     <!-- TWIBBON -->
     <div id="twibbon">
         <div class="twibbon-upper">
             Your Activity
@@ -39,46 +39,48 @@
                 foreach($twibbons as $twibbon):
             ?>
                 <div class="twibbon-list">
-                    <div class="twibbon-list-img">
-                        <img src="Asset/<?= $twibbon["Twibbon"] ?>" alt="">
-                    </div>
-                    <div class="twibbon-list-desc">
-                        <h2><?= $twibbon["Nama"] ?></h2>
-                        <div class="twibbon-list-logo">
-                            <div class="twibbon-list-logo-icon">
-                                <img src="Asset/<?= $twibbon["logo"] ?>" alt="">
-                            </div>
-                            <div>
-                                <p>
-                                    <?= $twibbon["NamaOrganizer"] ?>
-                                </p>
-                            </div>
+                    <a href="uploadtwibbon.php?eventID=<?= $twibbon["EventID"]?>">
+                        <div class="twibbon-list-img">
+                            <img src="Asset/<?= $twibbon["Twibbon"] ?>" alt="">
                         </div>
+                        <div class="twibbon-list-desc">
+                            <h2><?= $twibbon["Nama"] ?></h2>
+                            <div class="twibbon-list-logo">
+                                <div class="twibbon-list-logo-icon">
+                                    <img src="Asset/<?= $twibbon["logo"] ?>" alt="">
+                                </div>
+                                <div>
+                                    <p>
+                                        <?= $twibbon["NamaOrganizer"] ?>
+                                    </p>
+                                </div>
+                            </div>
 
-                        <div class="twibbon-list-time">
-                            <div class="twibbon-list-time-icon">
-                                <img src="Asset/time-icon.png" alt="">
+                            <div class="twibbon-list-time">
+                                <div class="twibbon-list-time-icon">
+                                    <img src="Asset/time-icon.png" alt="">
+                                </div>
+                                <div>
+                                    <p>
+                                        a year ago
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <p>
-                                    a year ago
-                                </p>
-                            </div>
-                        </div>
 
-                        <div class="twibbon-list-user">
-                            <div class="twibbon-list-user-icon">
-                                <img src="Asset/user-icon.png" alt="">
-                            </div>
-                            <div class="twibbon-list-user-count">
-                                <p>
-                                    60M user
-                                </p>
+                            <div class="twibbon-list-user">
+                                <div class="twibbon-list-user-icon">
+                                    <img src="Asset/user-icon.png" alt="">
+                                </div>
+                                <div class="twibbon-list-user-count">
+                                    <p>
+                                        60M user
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-            <?php 
+            <?php
                 endforeach
             ?>
         </div>

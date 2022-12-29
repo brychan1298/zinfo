@@ -90,7 +90,8 @@ nav ul li a:hover{
     margin-top: 72px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center ;
+    text-align: center ;
 }
 
 #twibbon-section{
@@ -143,25 +144,34 @@ nav ul li a:hover{
     margin-bottom: 2%;
 }
 
-.twibbon-section-button > button{
-    background: #1774FF;
-    border-radius: 100px;
-    width: 200px;
-    height: 60px;
-    font-weight: 700;
-    font-size: 25px;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.twibbon-section-template{
+.canvas{
+    width: 450px;
+    margin: auto;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
     margin-top: 6%;
 }
-.twibbon-section-template > img{
-    width: 67%;
-    text-align: center;
+
+img#photo{
+    position: absolute;
+    z-index: -1;
 }
+
+img#twibbon-template{
+    width: 100%;
+    height: 100%;
+}
+
+.row{
+    display: flex;
+    margin: 18px 0;
+    gap: 25%;
+    justify-content: center;
+}
+
+
 
 /* { FOOTER CSS */
     #footer-wrapper{

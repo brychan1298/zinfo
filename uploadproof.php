@@ -119,7 +119,7 @@
                     
                 </p>
             </div>
-            
+            c
         </div>
         <form action="uploadproof.php" method="POST" enctype="multipart/form-data">
             <input type="file" style="opacity:0;" id="tes" name="proof">
