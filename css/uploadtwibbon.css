@@ -157,11 +157,50 @@ nav ul li a:hover{
 img#photo{
     position: absolute;
     z-index: -1;
+    border: hidden;
 }
 
 img#twibbon-template{
     width: 100%;
     height: 100%;
+}
+
+.file-input > button{
+    background: #1774FF;
+    border-radius: 100px;
+    width: 145px;
+    height: 45px;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.file-input > button:hover{
+    background: #0f60db;
+}
+
+.download-container > a{
+    border-radius: 100px;
+    background: #1774FF;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.download-container > a:hover{
+    background: #0f60db;
+}
+
+.download-container{
+    margin-top: 6%;
 }
 
 .row{
@@ -171,7 +210,18 @@ img#twibbon-template{
     justify-content: center;
 }
 
+.input-set{
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
 
+.input-set:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+    cursor: pointer;
+}
 
 /* { FOOTER CSS */
     #footer-wrapper{

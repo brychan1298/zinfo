@@ -44,8 +44,10 @@
             <div class="twibbon-section-upload">
                     <p> UPLOAD YOUR PHOTO </p>
             </div>
+
             <div class="file-input">
-                <input type="file" id="photoimg" class="file">
+                <input style="display:none" type="file" id="photoimg">
+                <button id = "uploadButton" type="button" onclick="uploadButton()">HERE</button>
             </div>
             
             <div class = "canvas">
@@ -55,19 +57,19 @@
                 </div>
             </div>
 
-            <div class="twibbon-set">
+            <div id="twibbon-set">
                 <div class="row">
                     <div class="width">
                         <div class="label">
                             Width
                         </div>
-                        <input class="input-set" type="text" id = "width" value="100%">
+                        <input class="input-set" type="range" min="1" max="200" id = "width" value="100">
                     </div>
                     <div class="height">
                         <div class="label">
                             Height
                         </div>
-                        <input  type="text" id = "height" value="100%">
+                        <input class="input-set" type="range" min="1" max="200" id = "height" value="100">
                     </div>
                 </div>
 
@@ -76,17 +78,21 @@
                         <div class="label">
                             Top
                         </div>
-                        <input class="input-set" type="text" id = "top" value="0px">
+                        <input class="input-set" type="range" min="-450" max="450" id = "top" value="0">
                     </div>
                     <div class="left">
                         <div class="label">
                             Left
                         </div>
-                        <input class="input-set" type="text" id = "left" value="0px">
+                        <input class="input-set" type="range" min="-450" max="450" id = "left" value="0">
                     </div>
                 </div>
+
+                <div class="download-container">
+                    <a href="#" id="download">Download</a>
+                </div>
+
             </div>
-            <a href="#" id="download">Download</a>
         </div>
     </div>
     

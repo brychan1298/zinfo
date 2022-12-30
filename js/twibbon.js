@@ -1,5 +1,10 @@
 var photoimg = "";
 
+function uploadButton() {
+    document.getElementById('photoimg').click();
+    document.getElementsById("twibbon-set").style.display = "none";
+}
+
 // Upload 
 $(document).ready(function() {
     $('#photoimg').change(function(){
@@ -25,10 +30,10 @@ setInterval(function(){
 }, 0);
 
 function preview(){
-    var width = $('#width').val();
-    var height = $('#height').val();
-    var top = $('#top').val();
-    var left = $('#left').val();
+    var width = ($('#width').val())+"%";
+    var height = ($('#height').val())+"%";
+    var top = ($('#top').val())+"px";
+    var left = ($('#left').val())+"px";
     $("#photo").attr("src", photoimg);
     $('#photo').css("width", width);
     $('#photo').css("height", height);
