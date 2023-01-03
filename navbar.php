@@ -10,7 +10,7 @@
 <body>
     <?php
         include 'DBconn.php';
-        session_start();
+        // session_start();
         $total_cart = 0;
         if(isset($_SESSION["login"])):
             $UserID = $_SESSION["id"];
