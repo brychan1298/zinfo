@@ -28,7 +28,7 @@
             <div class="twibbon-section-logo-p">
                 <p> <?=$twibbonDetail["NamaOrganizer"]?> </p>
             </div>
-            <div class="twibbon-desc">
+            <!-- <div class="twibbon-desc">
                 <div class = twibbon-desc-item>
                     <img src="Asset/time-icon.png">
                     <p> a year ago </p>
@@ -37,7 +37,7 @@
                     <img src="Asset/user-icon.png">
                     <p> 60M user </p>
                 </div>
-            </div>
+            </div> -->
             <div class="twibbon-section-name">
                     <p> <?=$twibbonDetail["Nama"]?></p>
             </div>

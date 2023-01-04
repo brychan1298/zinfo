@@ -20,6 +20,9 @@ function signup($data) {
     $phone = $data["phone-number"];
     $email = $data["email"];
     $password = mysqli_real_escape_string($conn, $data["password"]);
+    echo "<script>
+                alert('email sudah terdaftar!')
+              </script>";
 
     // cek email udh ada atau belom
     $result = mysqli_query($conn, "SELECT Email FROM user 

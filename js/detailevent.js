@@ -71,6 +71,7 @@ window.onload = function() {
                 }
             });
             events[index].src = 'Asset/reminded-bell.png';
+            document.location.reload();
         }
     }
 
@@ -88,6 +89,7 @@ window.onload = function() {
                 }
             });
             delevents[index].src = 'Asset/bell-blue.png';
+            document.location.reload();
         }
     }
 }

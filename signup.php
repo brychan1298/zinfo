@@ -8,10 +8,12 @@ if(isset($_POST["signup"]) ) {
                 alert('user baru berhasil ditambahkan!');
               </script>";
     } else {
+        echo "<script>
+                alert('tidak terdaftar!');
+              </script>";
         echo mysqli_error($conn);
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +65,7 @@ if(isset($_POST["signup"]) ) {
                         </div>
                         <div id = 'phone-form'>
                             <img src="Asset/icon-phone.png" alt="">
-                            <input type="tel" name="phone-number" id = "phone-number" pattern="[0-9]{12}" placeholder="Phone number" required>
+                            <input type="tel" name="phone-number" id = "phone-number" placeholder="Phone number" required>
                         </div>
                         <div id = 'email-form'>
                             <img src="Asset/icon-email2.png" alt="">

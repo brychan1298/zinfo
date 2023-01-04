@@ -27,7 +27,7 @@
     <?php include "navbar.php" ?>
 
     <!-- BANNER -->
-    <div id="banner">
+    <!-- <div id="banner">
         <div>
             <img src="Asset/banner-event-1.png" alt="" class="banner-img">
         </div>
@@ -36,6 +36,30 @@
             <span></span>
             <span></span>
         </div>
+    </div> -->
+
+    <div class="banner">
+        <span id="button-left" class="button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+        </span>
+        <!-- <img src="Asset/banner.png" alt=""> -->
+        <div id="carousel-container">
+            <img class="carousel-image" src="Asset/banner.png" alt="">
+            <img class="carousel-image active" src="Asset/banner-event-1.png" alt="">
+            <img class="carousel-image" src="Asset/banner-event-2.png" alt="">
+        </div>
+        <!-- <div class="caroul-circle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div> -->
+        <span id="button-right" class="button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+        </span>
     </div>
 
     <!-- CATEGORY -->
@@ -111,10 +135,15 @@
                             <div class="event-list-price">
                                 <div class="event-list-price-p">
                                     <p>
+                                        
                                         <?php 
-                                            $hasil = "Rp " . number_format($event["Harga"],2,',','.');
-                                            echo $hasil;
+                                            if($event["Harga"]!=0):
+                                                $hasil = "Rp " . number_format($event["Harga"],2,',','.');
+                                                echo $hasil;
+                                            else:
                                         ?>
+                                            Free
+                                        <?php endif; ?> 
                                     </p>
                                 </div>
                                 <div class="event-list-price-ticket">
