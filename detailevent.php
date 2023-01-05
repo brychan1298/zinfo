@@ -16,6 +16,9 @@
         
         $eventdetail = mysqli_query($conn, "SELECT * FROM `event` e JOIN kategori k ON e.KategoriID = k.KategoriID  WHERE EventID = $EventID");
         $detailed = mysqli_fetch_assoc($eventdetail);
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
     ?>
     <?php include "navbar.php" ?>
 
@@ -130,8 +133,8 @@
                 <div id="detail-event-right-2">
                     <h2>
                         <?php 
-                            if($event["Harga"]!=0):
-                                $hasil = "Rp " . number_format($event["Harga"],2,',','.');
+                            if($detailed["Harga"]!=0):
+                                $hasil = "Rp " . number_format($detailed["Harga"],2,',','.');
                                 echo $hasil;
                             else:
                         ?>
