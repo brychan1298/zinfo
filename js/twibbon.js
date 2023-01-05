@@ -2,7 +2,7 @@ var photoimg = "";
 
 function uploadButton() {
     document.getElementById('photoimg').click();
-    document.getElementsById("twibbon-set").style.display = "none";
+    document.getElementById("twibbon-set").style.display = "block";
 }
 
 // Upload 
@@ -35,6 +35,8 @@ function preview(){
     var top = ($('#top').val())+"px";
     var left = ($('#left').val())+"px";
     $("#photo").attr("src", photoimg);
+    // var twibbon = ($('#twibbon-template-input').val());
+    // $("#twibbon-template").attr("src", twibbon);
     $('#photo').css("width", width);
     $('#photo').css("height", height);
     $('#photo').css("top", top);
@@ -44,6 +46,7 @@ function preview(){
 // Download 
 var element = $(".twibbon-section-template");
 $("#download").on('click', function(){
+    var element = $(".twibbon-section-template");
     html2canvas(element, {
         onrendered: function(canvas) {
             var imageData = canvas.toDataURL("image/png");

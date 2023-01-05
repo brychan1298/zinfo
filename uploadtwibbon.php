@@ -54,10 +54,11 @@
                 <div class="twibbon-section-template">
                     <img src="" id = "photo" alt="">
                     <img src="Asset/<?=$twibbonDetail["Twibbon"]?>" id = "twibbon-template" alt="">
+                    <input type="hidden" value="Asset/<?=$twibbonDetail["Twibbon"]?>" id="twibbon-template-input">
                 </div>
             </div>
 
-            <div id="twibbon-set">
+            <div id="twibbon-set" style="display: none;">
                 <div class="row">
                     <div class="width">
                         <div class="label">
@@ -89,7 +90,7 @@
                 </div>
 
                 <div class="download-container">
-                    <a href="#" id="download">Download</a>
+                    <a id="download">Download</a>
                 </div>
 
             </div>
