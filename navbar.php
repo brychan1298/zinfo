@@ -10,7 +10,7 @@
 <body>
     <?php
         include 'DBconn.php';
-        // session_start();
+        session_start();
         $total_cart = 0;
         if(isset($_SESSION["login"])):
             $UserID = $_SESSION["id"];
@@ -37,9 +37,15 @@
                 <li>
                     <a href="event.php">Event</a>
                 </li>
+                <?php if(isset($_SESSION['login'])) : ?>
                 <li>
                     <a href="twibbon.php">Twibbon</a>
                 </li>
+                <?php else : ?>
+                <li>
+                    <a href="login.php">Twibbon</a>
+                </li>
+                <?php endif; ?>
             </ul>
         </div>
         

@@ -129,11 +129,14 @@
                 <form action="payment.php" method="POST" id="formOrder">
                 <div id="detail-event-right-2">
                     <h2>
-                        
                         <?php 
-                            $hasil = "Rp " . number_format($detailed["Harga"],2,',','.');
-                            echo $hasil;
+                            if($event["Harga"]!=0):
+                                $hasil = "Rp " . number_format($event["Harga"],2,',','.');
+                                echo $hasil;
+                            else:
                         ?>
+                            Free
+                        <?php endif; ?> 
                     </h2>
                     <div id="event-count">
                         <div>
@@ -151,19 +154,23 @@
     
                 <div id="detail-event-right-3">
                     <div id="detail-event-right-3-1">
-                        <?php
-                            $UserID = $_SESSION["id"];
-                            $query = mysqli_query($conn,"SELECT * FROM reminder 
-                                                        WHERE EventID='$EventID'
-                                                        AND UserID='$UserID'");
-                            if(mysqli_num_rows($query)==0):
-                        ?>
-                            <img src="Asset/bell-blue.png" alt="" class="remind">
-                            <input type="hidden" class="remindID" value="<?=$EventID?>">
-                        <?php else :?>
-                            <img src="Asset/reminded-bell.png" alt="" class="delremind">
-                            <input type="hidden" class="delremindID" value="<?=$EventID?>">
-                        <?php endif?>
+                        <?php if(!isset($_SESSION['login'])) : ?>
+                            <img src="Asset/bell-blue.png" alt="" onclick="alert('Tolong login terlebih dahulu')">
+                        <?php else: ?>
+                            <?php
+                                $UserID = $_SESSION["id"];
+                                $query = mysqli_query($conn,"SELECT * FROM reminder 
+                                                            WHERE EventID='$EventID'
+                                                            AND UserID='$UserID'");
+                                if(mysqli_num_rows($query)==0):
+                            ?>
+                                <img src="Asset/bell-blue.png" alt="" class="remind">
+                                <input type="hidden" class="remindID" value="<?=$EventID?>">
+                            <?php else :?>
+                                <img src="Asset/reminded-bell.png" alt="" class="delremind">
+                                <input type="hidden" class="delremindID" value="<?=$EventID?>">
+                            <?php endif?>
+                        <?php endif; ?>
                     </div>
                     <div id="detail-event-right-3-2">
                         <?php if(isset($_SESSION['login'])) : ?>
@@ -182,9 +189,9 @@
                             Order
                         </button>
                         <?php else : ?>
-                        <button onclick="location.href='login.php'">
+                        <div onclick="location.href='login.php'">
                             Order
-                        </button>
+                        </div>
                     <?php endif ?>
                     </div>
                 </div>

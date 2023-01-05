@@ -23,14 +23,19 @@
         <span id="button-left" class="button">
             <svg xmlns="http://www.w3.org/2000/svg" class="" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
+            </svg>
         </span>
-        <img src="Asset/banner.png" alt="">
-        <div class="caroul-circle">
-            <span></span>
-            <span></span>
-            <span></span>
+        <!-- <img src="Asset/banner.png" alt=""> -->
+        <div id="carousel-container">
+            <img class="carousel-image active" src="Asset/banner.png" alt="">
+            <img class="carousel-image" src="Asset/banner-event-1.png" alt="">
+            <img class="carousel-image" src="Asset/banner-event-2.png" alt="">
         </div>
+        <!-- <div class="caroul-circle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div> -->
         <span id="button-right" class="button">
             <svg xmlns="http://www.w3.org/2000/svg" class="" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -96,9 +101,9 @@
                 foreach($trending as $trend):
             ?>
                 <div class="trending-box-child">
-                    <div class="trending-tanggal">
+                    <!-- <div class="trending-tanggal">
                         <img src="Asset/icon-tanggal.png" alt="">
-                    </div>
+                    </div> -->
                     <img src="Asset/poster/<?= $trend["GambarPoster"] ?>" alt="" class="trending-img">
                     <div class="trending-detail">
                         <button class="detail-button">
@@ -135,6 +140,9 @@
                     </div>
 
                     <div class="trending-blurred-bell">
+                        <?php if(!isset($_SESSION['login'])) : ?>
+                            <img src="Asset/bell-blue.png" alt="" onclick="alert('Tolong login terlebih dahulu')">
+                        <?php else : ?>
                         <?php
                             $UserID = $_SESSION["id"];
                             $EventID = $trend['EventID'];
@@ -149,7 +157,7 @@
                             <img src="Asset/reminded-bell.png" alt="" class="delremind">
                             <input type="hidden" class="delremindID" value="<?=$trend['EventID']?>">
                         <?php endif?>
-                        
+                        <?php endif?>
                     </div>
                 </div>
             <?php 

@@ -46,6 +46,7 @@
                     mysqli_query($conn,"INSERT INTO reminder(`UserID`,`EventID`)
                                         VALUES('$UserID','$eventid')");
                 }
+                header('Location: pending.php');
             }else{
                 echo "extension not allowed, please choose a JPEG or PNG file.";
             }
@@ -119,7 +120,6 @@
                     
                 </p>
             </div>
-            c
         </div>
         <form action="uploadproof.php" method="POST" enctype="multipart/form-data">
             <input type="file" style="opacity:0;" id="tes" name="proof">

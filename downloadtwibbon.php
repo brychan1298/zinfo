@@ -18,7 +18,7 @@
             <div class="twibbon-section-logo-p">
                 <p> Bank Central Asia </p>
             </div>
-            <div class="twibbon-desc">
+            <!-- <div class="twibbon-desc">
                 <div class = twibbon-desc-item>
                     <img src="Asset/time-icon.png">
                     <p> a year ago </p>
@@ -27,7 +27,7 @@
                     <img src="Asset/user-icon.png">
                     <p> 60M user </p>
                 </div>
-            </div>
+            </div> -->
             <div class="twibbon-section-name">
                     <p> PPBP/PPTI BCA 2024</p>
             </div>

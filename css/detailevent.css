@@ -283,3 +283,13 @@ body{
     cursor: pointer;
 }
 
+#detail-event-right-3-3 > div{
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 14px;
+    padding: 7% 3%;
+    background-color: #006DEC;
+    color: white;
+    cursor: pointer;
+}
+

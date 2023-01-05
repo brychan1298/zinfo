@@ -33,6 +33,7 @@ window.onload = function() {
         const phone = document.getElementById('phone-number');
         const tnc = document.getElementById('tnc');
 
+
         if (name.value.trim() === "") {
             alert('Name cannot be empty')
             return false
@@ -53,10 +54,18 @@ window.onload = function() {
             return false;
         }
 
-        if (phone.value.length > 12 || phone.value.length < 10) {
-            alert('The phone number length must be in between 10 and 12');
+        
+
+        if(isFinite(phone.value)){
+            if (phone.value.length > 12 || phone.value.length < 10) {
+                alert('The phone number length must be in between 10 and 12');
+                return false;
+            }
+        }else{
+            alert("The phone number must be number only");
             return false;
         }
+        
 
         if (!tnc.checked) {
             alert('tnc must be cecked')

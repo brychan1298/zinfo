@@ -143,15 +143,61 @@ nav{
 
 /* NAVBAR CSS } */
 
-#banner{
+.banner{
+    margin: 0 0 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
     position: relative;
-    margin: 0;
 }
 
-.banner-img{
+.banner img{
     width: 100%;
 }
 
+#carousel-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+    /* gap: 2%; */
+}
+
+.carousel-image{
+    height: 0;
+    transition: opacity .2s ease-in-out;
+    opacity: .5;
+    object-fit: cover;
+}
+
+.carousel-image.active{
+    height: var(--height);
+    opacity: 1;
+}
+
+.button>svg{
+    width: 6.2rem;
+    height: 6.2rem;
+    cursor: pointer;
+    color: #C8C8C8;
+}
+
+#button-left > svg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+#button-right > svg{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
 
 .caroul-circle>span{
     height: 15px;

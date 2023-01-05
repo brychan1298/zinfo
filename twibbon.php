@@ -10,7 +10,12 @@
 <body>
     <?php
         include "DBconn.php";
-        $twibbons = mysqli_query($conn, "SELECT * FROM event WHERE `logo` IS NOT NULL AND `twibbon` IS NOT NULL") or die(mysqli_error($conn));
+        session_start();
+        $UserID = $_SESSION["id"];
+        $query = "SELECT * FROM transaction t JOIN transactiondetail td ON t.transactionID = td.transactionID
+                    JOIN event e ON e.EventID = td.eventID where userID = $UserID AND kategoriID IN (1,3)";
+        // $twibbons = mysqli_query($conn, "SELECT * FROM event WHERE `logo` IS NOT NULL AND `twibbon` IS NOT NULL") or die(mysqli_error($conn));
+        $twibbons = mysqli_query($conn, $query) or die(mysqli_error($conn));
     ?>
     <!-- NAVBAR -->
     <?php include "navbar.php" ?>
@@ -36,6 +41,17 @@
         
         <div id="twibbon-section">
             <?php
+                if(mysqli_num_rows($twibbons) == 0):
+            ?>
+            <div>
+                <h1>
+                    Belum ada twibbon yang dapat digunakan.
+                </h1>
+            </div>
+            <?php
+                else:
+            ?>
+            <?php
                 foreach($twibbons as $twibbon):
             ?>
                 <div class="twibbon-list">
@@ -56,7 +72,7 @@
                                 </div>
                             </div>
 
-                            <div class="twibbon-list-time">
+                            <!-- <div class="twibbon-list-time">
                                 <div class="twibbon-list-time-icon">
                                     <img src="Asset/time-icon.png" alt="">
                                 </div>
@@ -76,12 +92,13 @@
                                         60M user
                                     </p>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </a>
                 </div>
             <?php
-                endforeach
+                endforeach;
+            endif;
             ?>
         </div>
     </div>
