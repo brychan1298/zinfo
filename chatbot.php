@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Chatbot in PHP | CampCodes</title>
+    <title>Chatbot Zinfo</title>
     <link rel="stylesheet" href="css/chatbot.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -14,7 +14,7 @@
             <div>
                 <ul id = "ul">
                     <li id ="back">
-                        <a href="">
+                        <a href="home.php">
                             <img src="asset/icon-back-arrow.png" alt="">
                         </a>
                     </li>
