@@ -76,7 +76,7 @@
             </div>
             <div class="icon-fitur">
                 <div class="icon-fitur-box">
-                    <a href="">
+                    <a href="chatbot.php">
                         <img src="Asset/icon-chat.png" alt="">
                     </a>
                 </div>
