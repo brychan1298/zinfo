@@ -55,3 +55,11 @@ $("#download").on('click', function(){
         }
     });
 });
+
+// Reset
+function changeValue(){
+    document.getElementById('width').value = 100;
+    document.getElementById('height').value = 100;
+    document.getElementById('top').value = 0;
+    document.getElementById('left').value = 0;
+}

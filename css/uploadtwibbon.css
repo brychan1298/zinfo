@@ -112,6 +112,7 @@ nav ul li a:hover{
     font-weight: 700;
     font-size: 36px;
 }
+
 .twibbon-desc{
     display: flex;
     flex-wrap: wrap;
@@ -204,10 +205,32 @@ img#twibbon-template{
 }
 
 .row{
-    display: flex;
     margin: 18px 0;
     gap: 25%;
-    justify-content: center;
+}
+
+.column{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20%;
+    align-items: center;
+}
+
+.row > button {
+    background: #1774FF;
+    border-radius: 100px;
+    width: 80px;
+    height: 35px;
+    font-weight: 600;
+    font-size: 15px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.row > button:hover{
+    background: #0f60db;
 }
 
 .input-set{
