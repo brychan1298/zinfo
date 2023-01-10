@@ -6,6 +6,10 @@ document.getElementById("tanggalwaktu").innerHTML = dt.toLocaleDateString();
 var input = document.getElementById("data");
 input.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
+    if(input.value===''){
+        alert("Please Fill!!");
+        return false;
+    }
     event.preventDefault();
     document.getElementById("send-btn").click();
   }
