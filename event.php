@@ -135,7 +135,6 @@
                             <div class="event-list-price">
                                 <div class="event-list-price-p">
                                     <p>
-                                        
                                         <?php 
                                             if($event["Harga"]!=0):
                                                 $hasil = "Rp " . number_format($event["Harga"],2,',','.');

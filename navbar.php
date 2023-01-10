@@ -23,7 +23,7 @@
     <nav id="nav">
         <div>
             <ul id="ul">
-                <li>
+                <li class="hideLogo">
                     <a href="home.php">
                         <img src="Asset/Logo Zinfo 2.png" alt="">
                     </a>
@@ -62,14 +62,9 @@
                     <li id="login" onclick="location.href = 'login.php'">
                         <button>Log In</button>
                     </li>
-                    <li>
-                        <a href="login.php">
-                            <img src="Asset/cart.png" alt="">
-                        </a>
-                    </li>
                 <?php else: ?>
                     <li id="login">
-                        <button>
+                        <button onclick="toggleMenu()">
                             <?php 
                                 // $Nama = '<pre>' . print_r($_SESSION["user"], TRUE) . '</pre>';
                                 $nama = $profiles['Nama'];
@@ -77,7 +72,7 @@
                             ?>
                         </button>
                     </li>
-                    <li id="liabsolute" onclick="location.href='cart.php'">
+                    <li class="hideLogo" id="liabsolute" onclick="location.href='cart.php'">
                         <a href="cart.php">
                             <img src="Asset/cart.png" alt="">
                         </a>
@@ -85,12 +80,10 @@
                             <?= $total_cart ?>
                         </div>
                     </li>
+                    <!-- <li class="hideLogo">
+                        <img src="Asset/profil.png" alt="" onclick="toggleMenu()">
+                    </li> -->
                 <?php endif ?>
-                
-                <li>
-                    <img src="Asset/profil.png" alt="" onclick="toggleMenu()">
-                </li>
-                
             </ul>
         </div>
         <div class="sub-menu-wrap" id="subMenu">

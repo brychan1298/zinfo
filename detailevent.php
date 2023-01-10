@@ -25,7 +25,10 @@
     <div id="detail-event">
         <div id="detail-event-left">
             <div>
-                <img src="Asset/poster/<?= $detailed['GambarPoster'] ?>" alt="">
+                
+                <iframe width="420" height="315"
+                    src="https://www.youtube.com/embed/PwWHL3RyQgk">
+                </iframe>
             </div>
             <h2 id="event-category"><?= $detailed['Kategori'] ?></h2>
             <h1 id="event-name"><?= $detailed['Nama'] ?></h1>

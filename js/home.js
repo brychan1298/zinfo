@@ -103,23 +103,3 @@ window.onload = () =>{
     }, 3000)
 }
 
-function responsive(){
-    var toggle = document.getElementById('toggle');
-    var ul = document.getElementById('ul');
-    var nav = document.getElementById('nav');
-    var i = document.getElementsByClassName('menu');
-    
-
-    if(toggle.innerHTML == 'open'){
-        nav.style.left = '0';
-        ul.style.left = '0';
-        toggle.innerHTML = 'close';
-    }else{
-        nav.style.left = '100%'
-        ul.style.left = '100%';
-        toggle.innerHTML = 'open';
-    }
-}
-
-const menu = document.getElementById('menu');
-menu.onclick = () => responsive();
