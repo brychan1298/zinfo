@@ -62,22 +62,45 @@ body{
 .certificate-section-template{
     margin-top: 3.5%;
     margin-bottom: 3.5%;
-}
-.certificate-section-template > img{
-    width: 70%;
-    text-align: center;
+    position: relative;
+    align-items: center;
 }
 
-.certificate-section-button > button{
-    background: #1774FF;
-    border-radius: 100vw;
-    width:  25vw;
-    height: 3.8vw;
+.certificate-name > p{
+    position: absolute;
+    color: #FFFFFF;
     font-weight: 700;
-    font-size: 1.5vw;
+    font-size: 2vw;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.certificate-section-template > img{
+    width: 70%;
+}
+
+.certificate-section-button > a{
+    border-radius: 100px;
+    background: #1774FF;
     color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
     border: none;
     cursor: pointer;
+    transition: .2s;
+}
+
+.certificate-section-button > a:hover{
+    background: #0f60db;
+}
+
+.certificate-section-button{
+    margin-top: 4%;
 }
 
 
