@@ -421,6 +421,7 @@ nav ul li a:hover{
   .slider-p{
     font-size: 24px;
     font-weight: 700;
+    color:rgb(78, 77, 77)
   }
   .slider-block::before, .slider-block::after {
     background: linear-gradient(to right, #F9FCFE 0%, rgba(255, 255, 255, 0) 100%);
