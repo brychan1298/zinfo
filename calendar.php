@@ -85,7 +85,8 @@ function displayMessage(message) {
     font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
     
     width: 80%;
-    z-index: -1;
+    z-index: -3;
+    
     margin: 0 auto;
 }
 

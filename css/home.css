@@ -215,7 +215,7 @@ nav ul li a:hover{
     left: 50%;
     top: 90%;
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);    
     margin: 0;
 }
 

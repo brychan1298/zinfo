@@ -94,7 +94,7 @@
                         <p>Profile</p>
                         <span>></span>
                     </a>
-                    <a href="" class="sub-menu-link">
+                    <a href="history.php" class="sub-menu-link">
                         <p>History</p>
                         <span>></span>
                     </a>
