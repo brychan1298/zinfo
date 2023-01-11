@@ -165,7 +165,67 @@
             ?>
         </div>
     </div>
-
+    
+    <div class='slider-logo'>
+        <div class='slider-logo-parent'>
+            <div class='slider-logo-track'>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\binus.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\dyandra.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\gojek.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\gudlive.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\hard-rock.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\bem-ui.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\manupsia.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\scarlett.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\TEdx-logo.svg" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\binus.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\dyandra.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\gojek.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\gudlive.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\hard-rock.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\bem-ui.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\manupsia.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\scarlett.png" alt="">
+                </div>
+                <div class='slider-logo-item'>
+                    <img src="Asset\slider-logo-support\TEdx-logo.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
     <?php include "footer.php" ?>
 
     <script src="js/home.js"></script>
