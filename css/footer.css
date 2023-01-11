@@ -79,4 +79,38 @@ font-size: 0.9em;
 .footer-follow-us img{
 width: 70%;
 }
+
+@media (max-width: 832px){
+
+    #footer{
+        display: flex;
+        justify-content: center;
+    }
+
+    #footer .footer-box1{
+        display: none;
+    }
+
+    #footer .footer-box2{
+        width: 50%;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
+
+    #footer .footer-box3{
+        width: 50%;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
+
+    #footer .footer-box4{
+        width: 50%;
+        margin-bottom: 5vh;
+    }
+
+    #footer .footer-box5{
+        width: 50%;
+        margin-bottom: 5vh;
+    }
+}
 /* FOOTER CSS } */

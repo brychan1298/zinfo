@@ -69,8 +69,9 @@
                 $event = mysqli_fetch_assoc($events);
                 $eventID = $event['EventID'];
                 $eventQTY = $event['qty'];
-                $query = "INSERT INTO transactionDetail(`transactionID`,`eventID`,`qty`)
-                    VALUES('$transactionID','$eventID',$eventQTY)";
+                $randomNumber = rand(100000,999999);
+                $query = "INSERT INTO transactionDetail(`transactionID`,`eventID`,`qty`,`kodeBooking`)
+                    VALUES('$transactionID','$eventID',$eventQTY,$randomNumber)";
                 mysqli_query($conn,$query) or die(mysqli_error($conn));
 
                 $query = "DELETE FROM cart WHERE id='$cartID'";
@@ -89,8 +90,9 @@
             $transactionID = $querys['transactionID'];
             $eventID = $_POST['eventID'];
             $eventQTY = $_POST['qty'];
+            $randomNumber = rand(100000,999999);
             $query = "INSERT INTO transactionDetail(`transactionID`,`eventID`,`qty`)
-                VALUES('$transactionID','$eventID',$eventQTY)";
+                VALUES('$transactionID','$eventID',$eventQTY,$randomNumber)";
             mysqli_query($conn,$query) or die(mysqli_error($conn));
 
             $query = "DELETE FROM cart WHERE id='$cartID'";

@@ -10,6 +10,13 @@
 <body>
 
     <?php include "navbar.php" ?>
+    <?php
+        $profile = mysqli_query($conn, "SELECT * FROM `user` WHERE UserID = '$UserID'");
+        $id = $_GET['id'];
+        $query = mysqli_query($conn, "SELECT * FROM transactiondetail td JOIN event e ON e.EventID = td.eventID
+                                    JOIN kategori k ON k.KategoriID = e.KategoriID WHERE transactiondetailID = '$id'");
+        $data = mysqli_fetch_assoc($query);
+    ?>
     <div id="success">
         <h2>Pembayaran Berhasil!</h2>
         <img src="Asset/QR.png" alt="">
@@ -18,34 +25,100 @@
 
         <div id="success-2">
             <div>
-                Nama : <label>Amanda Angelia Artanto Ekosputri Santoso</label>
+                Nama : 
+                <label>
+                    <?php
+                        $nama = $profiles['Nama'];
+                        echo $nama; 
+                    ?>
+                </label>
             </div>
             <div>
-                No Transaksi : <label>SKWF/08/2022/017</label>
+                No Transaksi : 
+                <!-- SKWF/08/2022/017 -->
+                <label>
+                    <?php
+                        $kategori = $data['Kategori'];
+                        $transactionID = $data['transactionID'];
+                        $date=date_create($data["Tanggal"]);
+                        $year = date_format($date,"Y");
+                        
+                        echo substr(strtoupper($kategori),0 ,4)."/".$transactionID."/".$year."/".$id;
+                    ?>
+                </label>
             </div>
             <div>
-                Kode Booking : <label>204545</label>
+                Kode Booking : 
+                <label>
+                    <?php
+                        echo $data['kodeBooking'];
+                    ?>
+                </label>
             </div>
             <div>
-                Nama Event : <label>Stray Kids 2nd World Tour</label>
+                Nama Event : 
+                <label>
+                    <?php
+                        echo $data['Nama'];
+                        
+                    ?>
+                </label>
             </div>
             <div>
-                Tanggal Event : <label>13 November 2022</label>
+                Tanggal Event : 
+                <label>
+                    <?php  
+                        $orgDate = $data["Tanggal"];
+                        // echo $orgDate;
+                        $date=date_create($orgDate);
+                        echo date_format($date,"d F Y");
+                    ?>
+                </label>
             </div>
-            <div>
+            <!-- <div>
                 Waktu Event : <label>17.00 - 21.00 WIB</label>
+            </div> -->
+            <div>
+                Lokasi Event : 
+                <label>
+                    <?php  
+                        echo $data['Alamat']
+                    ?>  
+                </label>
             </div>
             <div>
-                Lokasi Event : <label>Stadion Bung Karno Bung Hatta </label>
+                Harga Tiket : 
+                <label>
+                    <?php 
+                        if($data["Harga"]!=0):
+                            $hasil = "Rp " . number_format($data["Harga"],2,',','.');
+                            echo $hasil;
+                        else:
+                    ?>
+                        Free
+                    <?php endif; ?>  
+                </label>
             </div>
             <div>
-                Harga Tiket : <label>Rp. 199.000,00</label>
+                Jumlah Tiket : 
+                <label>
+                    <?php  
+                        echo $data['qty'];
+                    ?>  
+                </label>
             </div>
             <div>
-                Jumlah Tiket : <label>2</label>
-            </div>
-            <div>
-                Total Harga : <label>Rp. 398.000,00</label>
+                Total Harga : 
+                <label>
+                    <?php 
+                        if($data["Harga"]!=0):
+                            $hasil = "Rp " . number_format($data['qty']*$data["Harga"],2,',','.');
+                            echo $hasil;
+                        else:
+                    ?>
+                        Free
+                    <?php endif; ?>  
+                </label>
             </div>
         </div>
 
