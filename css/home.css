@@ -396,6 +396,75 @@ nav ul li a:hover{
     }
 }
 
+/* Slider-Logo */
+.slider-logo{
+    height: 250px;
+    margin: auto;
+    position: relative;
+    width: 90%;
+    place-items: center;
+    display: grid;
+    overflow: hidden;
+}
+
+.slider-logo-track{
+    display: flex;
+    width: calc(250px * 18);
+    animation: scroll 900s linear infinite;
+}
+
+.slider-logo-track:hover{
+    animation-play-state: paused;
+}
+
+@keyframes scroll{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform:translateX(calc(-250px * 18));
+    }
+}
+
+.slider-logo-item{
+    height: 200px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    perspective: 100px;
+}
+
+.slider-logo-item > img{
+    width: 100%;
+    transition: transform 1s;
+}
+
+.slider-logo-item > img:hover{
+    transform: translateZ(20px);
+}
+
+/* Gradiet shadow */
+.slider-logo::before, .slider-logo::after{
+    background: linear-gradient(to right, white, 0%, black, 100%);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+}
+
+.slider-logo::before{
+    left:0;
+    top:0;
+}
+
+.slider-logo::after{
+    right:0;
+    top:0;
+    transform: rotateZ(180deg);
+}
+
 #footer-wrapper{
     background-color: #0066FF;
     color: white;
