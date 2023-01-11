@@ -27,7 +27,7 @@
         </span>
         <!-- <img src="Asset/banner.png" alt=""> -->
         <div id="carousel-container">
-            <img class="carousel-image active" src="Asset/banner.png" alt="">
+            <img class="carousel-image active" src="Asset/banner-event-3.jpg" alt="">
             <img class="carousel-image" src="Asset/banner-event-1.png" alt="">
             <img class="carousel-image" src="Asset/banner-event-2.png" alt="">
         </div>
@@ -166,64 +166,50 @@
         </div>
     </div>
 
-    <div class='slider-logo'>
-    <p> Dipercaya lebih dari 2,000 Perusahaan </p>
-        <div class='slider-logo-parent'>
-            <div class='slider-logo-track'>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\binus.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\dyandra.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\gojek.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\gudlive.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\hard-rock.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\bem-ui.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\manupsia.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\scarlett.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\TEdx-logo.svg" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\binus.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\dyandra.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\gojek.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\gudlive.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\hard-rock.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\bem-ui.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\manupsia.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\scarlett.png" alt="">
-                </div>
-                <div class='slider-logo-item'>
-                    <img src="Asset\slider-logo-support\TEdx-logo.svg" alt="">
-                </div>
+    <div class="slider-block">
+        <p class='slider-p'> Dipercaya oleh lebih dari 2,000 organisasi </p>
+        <div class="slide-track">
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\bem-ui.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\binus.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\dyandra.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\gojek.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\gudlive.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\hard-rock.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\grab.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\bem-ui.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\binus.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\dyandra.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\gojek.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\gudlive.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\hard-rock.png" height="100" width="210" alt="" />
+            </div>
+            <div class="slide-block">
+                <img src="Asset\slider-logo-support\grab.png" height="100" width="210" alt="" />
             </div>
         </div>
     </div>
