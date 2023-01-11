@@ -54,42 +54,47 @@
                 <div class="twibbon-section-template">
                     <img src="" id = "photo" alt="">
                     <img src="Asset/<?=$twibbonDetail["Twibbon"]?>" id = "twibbon-template" alt="">
+                    <input type="hidden" value="Asset/<?=$twibbonDetail["Twibbon"]?>" id="twibbon-template-input">
                 </div>
             </div>
 
-            <div id="twibbon-set">
-                <div class="row">
-                    <div class="width">
-                        <div class="label">
-                            Width
+            <div id="twibbon-set" style="display: none;">
+                <div class="column">
+                    <div class="row">
+                        <div class="width">
+                            <div class="label">
+                                Width
+                            </div>
+                            <input class="input-set" type="range" min="1" max="200" id = "width" value="100">
                         </div>
-                        <input class="input-set" type="range" min="1" max="200" id = "width" value="100">
+                        <div class="height">
+                            <div class="label">
+                                Height
+                            </div>
+                            <input class="input-set" type="range" min="1" max="200" id = "height" value="100">
+                        </div>
                     </div>
-                    <div class="height">
-                        <div class="label">
-                            Height
+                    <div class="row">
+                        <div class="top">
+                            <div class="label">
+                                Top
+                            </div>
+                            <input class="input-set" type="range" min="-450" max="450" id = "top" value="0">
                         </div>
-                        <input class="input-set" type="range" min="1" max="200" id = "height" value="100">
+                        <div class="left">
+                            <div class="label">
+                                Left
+                            </div>
+                            <input class="input-set" type="range" min="-450" max="450" id = "left" value="0">
+                        </div>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="top">
-                        <div class="label">
-                            Top
-                        </div>
-                        <input class="input-set" type="range" min="-450" max="450" id = "top" value="0">
-                    </div>
-                    <div class="left">
-                        <div class="label">
-                            Left
-                        </div>
-                        <input class="input-set" type="range" min="-450" max="450" id = "left" value="0">
+                    <div class="row">
+                        <button onclick="changeValue()">Reset</button>
                     </div>
                 </div>
 
                 <div class="download-container">
-                    <a href="#" id="download">Download</a>
+                    <a id="download">Download</a>
                 </div>
 
             </div>
