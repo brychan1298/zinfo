@@ -52,6 +52,11 @@
             }
         }
     ?>
+    <?php
+        if(isset($_POST['transactionID'])){
+            $transactionID = $_POST['transactionID'];
+        }
+    ?>
     <?php 
         if(isset($_POST['listCartID'])){
             $UserID = $_SESSION["id"];
