@@ -67,12 +67,24 @@
                         date_default_timezone_set('Asia/Indonesia');
                         if($history["Tanggal"]<=date("Y-m-d")):
                     ?>
+                        
                         <p class="isi-st4">Event Finished</p>
                     <?php
                         endif;
                     ?>
                 </div>
-            </div>            
+            </div> 
+            <div class="klaim">
+                <?php
+                    if($history["status"]=="SUDAH"):
+                ?>
+                    <a href="successpayment.php?id=<?=$history['transactiondetailID']?>">
+                        Klaim Ticket
+                    </a>
+                <?php else: ?>
+                    
+                <?php endif; ?>
+            </div>
         </div>
         <?php endforeach; ?>
         <div class="price">
