@@ -165,8 +165,9 @@
             ?>
         </div>
     </div>
-    
+
     <div class='slider-logo'>
+    <p> Dipercaya lebih dari 2,000 Perusahaan </p>
         <div class='slider-logo-parent'>
             <div class='slider-logo-track'>
                 <div class='slider-logo-item'>
