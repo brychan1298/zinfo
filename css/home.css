@@ -397,73 +397,87 @@ nav ul li a:hover{
 }
 
 /* Slider-Logo */
-.slider-logo{
-    height: 250px;
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
+}
+  .slider-block {
+    background: transparent;
+    /*box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);*/
+    height: 200px;
     margin: auto;
-    position: relative;
-    width: 90%;
-    place-items: center;
-    display: grid;
     overflow: hidden;
-}
+    position: relative;
+    width: 80%;
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 8%;
+  }
 
-.slider-logo-track{
-    display: flex;
-    width: calc(250px * 18);
-    animation: scroll 200s linear infinite;
-}
-
-.slider-logo-track:hover{
-    animation-play-state: paused;
-}
-
-@keyframes scroll{
-    0%{
-        transform: translateX(0);
-    }
-    100%{
-        transform:translateX(calc(-250px * 18));
-    }
-}
-
-.slider-logo-item{
-    height: 150px;
-    width: 200px;
-    display: flex;
-    align-items: center;
-    padding: 30px;
-    perspective: 100px;
-}
-
-.slider-logo-item > img{
-    width: 100%;
-    transition: transform 1s;
-}
-
-.slider-logo-item > img:hover{
-    transform: translateZ(20px);
-}
-
-/* Gradiet shadow */
-.slider-logo::before, .slider-logo::after{
-    background: linear-gradient(to right, white, 0%, black, 100%);
-    content: '';
-    height: 100%;
+  .slider-p{
+    font-size: 24px;
+    font-weight: 700;
+    color:rgb(78, 77, 77)
+  }
+  .slider-block::before, .slider-block::after {
+    background: linear-gradient(to right, #F9FCFE 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 200px;
     position: absolute;
-    width: 15%;
+    width: 200px;
     z-index: 2;
-}
-
-.slider-logo::before{
-    left:0;
-    top:0;
-}
-
-.slider-logo::after{
-    right:0;
-    top:0;
+  }
+  .slider-block::after {
+    right: 0;
+    top: 0;
     transform: rotateZ(180deg);
-}
+  }
+  .slider-block::before {
+    left: 0;
+    top: 0;
+  }
+  .slider-block .slide-track {
+    animation: scroll 30s linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+  }
+  
+  .slide-track{
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    place-items: center;
+    margin-top: 5%;
+  }
+  .slider-block .slide-block {
+    height: 100px;
+    width: 250px;
+  }
+  
+  .slide-block{
+    perspective: 100px;
+    align-items: center;
+  }
+  
+  .slide-block > img{
+    width: 80%;
+    /* margin: 20%; */
+    transition: transform 1s;
+  }
+  
+  .slider-block :hover{
+    animation-play-state: paused;
+  }
+  
+  .slide-block > img:hover{
+    transform: translateZ(20px);
+  }
+  
 
 #footer-wrapper{
     background-color: #0066FF;

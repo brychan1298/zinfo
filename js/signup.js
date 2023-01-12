@@ -54,8 +54,6 @@ window.onload = function() {
             return false;
         }
 
-        
-
         if(isFinite(phone.value)){
             if (phone.value.length > 12 || phone.value.length < 10) {
                 alert('The phone number length must be in between 10 and 12');
