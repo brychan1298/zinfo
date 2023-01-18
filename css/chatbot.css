@@ -32,7 +32,7 @@ html,body{
 
 .wrapper{
     background: #fff;
-    height: 100vh;
+    height: 90vh;
 }
 
 .nav{
@@ -44,7 +44,7 @@ html,body{
     background-color: #0066FF;
     flex-wrap: wrap;
     width: 100vw;
-    height: 10%;
+    height: 55px;
 }
 
 #ul > li > a > img{
@@ -81,13 +81,14 @@ html,body{
     text-align: center;
     opacity: 50%;
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 6px;
+    margin-bottom: 3px;
 }
 
 .wrapper .form{
-    margin: 0px 20px;
-    padding: 20px 15px;
-    height: auto;
+    margin: 0px 1vw;
+    padding: 1vw 1.7vw;
+    height: 110vh;
     min-height: 63%;
     max-height: 400px;
     overflow-y: auto;
@@ -115,41 +116,57 @@ html,body{
     max-width: 53%;
     margin-left: 10px;
 }
+
 .form .inbox .msg-header p{
     color: #fff;
     background: #007bff;
     border-radius: 10px;
     padding: 8px 10px;
-    font-size: 14px;
+    font-size: 15px;
 }
 .form .user-inbox .msg-header p{
     color: #333;
     background: #efefef;
 }
 
-.choices{
-    width: 100%;
-    position: fixed;
-    bottom: 10%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: auto;
-    background-color: white;
-    
+::-webkit-scrollbar{
+    width: 2px;
 }
 
-.choices button {
+.choices-slide::-webkit-scrollbar{
+    height: 0;
+}
+
+.choices {
+    overflow-x: auto;
+    border: 1px red solid;
+    margin-top: 80px;
+}
+
+.choices-slide{
+    overflow-x: auto;
+    width: 100%;
+    position: fixed;
+    bottom: 60px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+}
+
+.choices-slide button {
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     padding: 5px 16px;
     cursor: pointer;
+    min-width: 285px;
+    margin: 0 5px;
 }
 
-.choices button:hover{
+.choices-slide button:hover{
     background-color:#333;
     color: white;
 }
@@ -157,7 +174,7 @@ html,body{
 .wrapper .typing-field{
     position: fixed;
     display: flex;
-    height: 60px;
+    height: 55px;
     bottom: 0;
     width: 100%;
     align-items: center;
@@ -171,12 +188,11 @@ html,body{
     display: flex;
     height: 35px;
     width: 90%;
-    /* border: 1px red solid; */
     position: relative;
 }
 .wrapper .typing-field .input-data input{
     height: 100%;
-    width: 80%;
+    width: 90%;
     outline: none;
     border: 1px solid transparent;
     padding: 0 80px 0 15px;
@@ -219,4 +235,80 @@ html,body{
 }
 .typing-field .input-data button:hover{
     background: #006fef;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:832px){
+    .nav>div>#ul>li>h1{
+        margin-left: -10px;
+    }
+
+    .date {
+        margin-top: 5px;
+        margin-bottom: 2px;
+    }
+
+    .wrapper .typing-field .input-data input{
+        padding: 0 20px 0 15px;
+    }
+}
+
+@media(max-width:400px){
+    #ul > li > a > img{
+        margin-top: 5%;
+        margin-left: 15%;
+        width: 50%;
+    }
+    
+    #ul > li > img{
+        margin-top: 6%;
+        width: 50%;
+    }
+        
+    .nav>div>#ul>li>h1{
+        margin-left: -15px;
+    }
+
+    .date {
+        font-size: 15px;
+        margin-top: 5px;
+        margin-bottom: 2px;
+    }
+    .wrapper .form{
+        height: 100vh;
+        max-height: 395px;
+    }
+    
+    .wrapper .form .inbox .icon{
+        height: 35px;
+        width: 35px;
+        line-height: 35px;
+        font-size: 15px;
+    }
+    .wrapper .form .inbox .msg-header {
+        max-width: 70%;
+    }
+
+    .form .inbox .msg-header p{
+        font-size: 15px;
+    }
+
+    .wrapper .typing-field .input-data input{
+        padding: 0 20px 0 15px;
+    }
+
+    .choices {
+        height: 10vh;
+        width: 100%;
+        overflow-x: auto;
+        position: relative;
+    }
+
+    .choices-slide > button {
+        margin-left: 5px;
+        margin-right: 5px;
+        min-width: 180px;
+        position: relative;
+    }
 }
