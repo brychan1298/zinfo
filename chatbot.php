@@ -44,11 +44,13 @@
         </div>
 
         <div class="choices">
-            <button id="question1" data-text = "Cara membatalkan pesanan">Cara membatalkan pesanan</button>
-            <button id="question2" data-text = "Cara mengambil sertifikat">Cara mengambil sertifikat</button>
-            <button id="question3" data-text = "Cara menghapus update di kalender">Cara menghapus update di kalender</button>
-            <button id="question4" data-text = "Metode pembayaran">Metode pembayaran</button>
-            <button id="question5" data-text = "Refund tiket">Refund tiket</button>
+            <div class = "choices-slide">
+                <button id="question1" data-text = "Cara membatalkan pesanan">Cara membatalkan pesanan</button>
+                <button id="question2" data-text = "Cara mengambil sertifikat">Cara mengambil sertifikat</button>
+                <button id="question3" data-text = "Cara menghapus update di kalender">Cara menghapus update di kalender</button>
+                <button id="question4" data-text = "Metode pembayaran">Metode pembayaran</button>
+                <button id="question5" data-text = "Refund tiket">Refund tiket</button>
+            </div>
         </div>
 
         <div class="typing-field">
