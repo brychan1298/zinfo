@@ -19,16 +19,35 @@
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
+        
     ?>
     <?php include "navbar.php" ?>
+
+    <?php
+        
+        if(isset($_POST['comment'])){
+            $UserID = $_SESSION["id"];
+            $comment = $_POST['comment'];
+            $date = date("Y-m-d");
+
+            $query = "INSERT INTO comment(`EventID`,`UserID`,`comment`,`date`)
+                    VALUES('$EventID','$UserID','$comment','$date')";
+            mysqli_query($conn,$query) or die(mysqli_error($conn));
+        }
+        $query = "SELECT * FROM comment c JOIN event e ON e.EventID = c.EventID
+                JOIN user u ON u.UserID = c.UserID where e.EventID = '$EventID' ORDER BY CommentID DESC";
+        $comments = mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+        
+    ?>
 
     <div id="detail-event">
         <div id="detail-event-left">
             <div>
-                
-                <iframe width="420" height="315"
+                <img src="Asset/poster/<?= $detailed['GambarPoster'] ?>" alt="">
+                <!-- <iframe width="420" height="315"
                     src="https://www.youtube.com/embed/PwWHL3RyQgk">
-                </iframe>
+                </iframe> -->
             </div>
             <h2 id="event-category"><?= $detailed['Kategori'] ?></h2>
             <h1 id="event-name"><?= $detailed['Nama'] ?></h1>
@@ -202,6 +221,72 @@
                     </div>
                 </div>
                 </form>
+            </div>
+            <div id="detail-event-right-child-2">
+                <p>
+                    503 Comments
+                </p>
+                <form action="detailevent.php?eventID=<?=$EventID?>" method="POST">
+                    <div class="current-comment">
+                        <?php
+                            if(isset($_SESSION["login"])):
+                                $UserID = $_SESSION["id"];
+                                $profile = mysqli_query($conn, "SELECT * FROM `user` WHERE UserID = '$UserID'");
+                                $profiles = mysqli_fetch_assoc($profile);
+                                
+                        ?>
+                            <p>
+                                <?=$profiles['Nama']?>
+                            </p>
+                            <div class="input-comment">
+                                <input type="text" name="comment" placeholder="Add a comment..." id="comment" onkeyup="sending()">
+                                <button id="send">
+                                    Send
+                                </button>
+                            </div>
+                        <?php
+                            else:
+                        ?>
+                            <p>
+                                <a href="login.php">
+                                    Login to comment
+                                </a>
+                            </p>
+                        <?php
+                            endif;
+                        ?>
+                    </div>
+                </form>
+                
+                <?php
+                    foreach($comments as $comment):
+                ?>
+                    <div class="comment-list">
+                        <div class="name-date">
+                            <p class="comment-name">
+                                <?= $comment['Nama'] ?>
+                            </p>
+                            <p class="comment-date">
+                                <?php
+                                    $date = date("Y-m-d");
+                                    $diff = abs(strtotime($date) - strtotime($comment['date']));
+
+                                    // $years = floor($diff / (365*60*60*24));
+                                    // $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
+                                    // $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+
+                                    echo ($diff)/60/60/24;
+                                ?>
+                                days ago
+                            </p>
+                        </div>
+                        <p>
+                            <?= $comment['comment'] ?>
+                        </p>
+                    </div>
+                <?php
+                    endforeach;
+                ?>
             </div>
         </div>
         

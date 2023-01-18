@@ -69,11 +69,11 @@
                         <input type="text" name="notelp" value="<?= $userDetail['NoTelp']?>">
                         <img src="Asset/edit.png" alt="">
                     </div>
-                    <label for="">Password</label>
+                    <!-- <label for="">Password</label>
                     <div class="input-control">
-                        <input type="password" name="password" value="<?= $userDetail['Password']?>">
+                        <input type="password" name="password" value="">
                         <img src="Asset/edit.png" alt="">
-                    </div>
+                    </div> -->
                     <div id="button">
                         <button id="saveButton" name="updateProfile" onclick="updates()">Save</button>
                     </div>

@@ -62,12 +62,12 @@
                 </div>
 
                 <div class="status">
-                    <p class="st">Status :</p>
+                    
                     <?php
                         date_default_timezone_set('Asia/Indonesia');
                         if($history["Tanggal"]<=date("Y-m-d")):
                     ?>
-                        
+                        <p class="st">Status :</p>
                         <p class="isi-st4">Event Finished</p>
                     <?php
                         endif;
@@ -79,8 +79,13 @@
                     if($history["status"]=="SUDAH"):
                 ?>
                     <a href="successpayment.php?id=<?=$history['transactiondetailID']?>">
-                        Klaim Ticket
+                        Claim Ticket
                     </a>
+                    <p>
+                        <a href="certificate.php">
+                            Claim E-Certificate
+                        </a>
+                    </p>
                 <?php else: ?>
                     
                 <?php endif; ?>
@@ -110,7 +115,7 @@
                     if($history["status"]=="BELUM"):
                 ?>
                 <form method="POST" action="uploadproof.php">
-                    <input type="hidden" value="<?=$transaction['transactionID']?>" name="transactionID" >
+                    <input type="hidden" value="<?=$transaction['transactionID']?>" name="transactionIDs" >
                     <button class="feedback">Bayar Sekarang</button>
                 </form>
                 <?php else: ?>

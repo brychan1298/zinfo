@@ -81,7 +81,7 @@ nav ul li a:hover{
 .sub-menu-wrap{
     position: absolute;
     top: 100%;
-    right: 0%;
+    right: 5%;
     margin-right: 9%;
     background-color: azure;
     width: 15%;

@@ -53,8 +53,8 @@
         }
     ?>
     <?php
-        if(isset($_POST['transactionID'])){
-            $transactionID = $_POST['transactionID'];
+        if(isset($_POST['transactionIDs'])){
+            $transactionID = $_POST['transactionIDs'];
         }
     ?>
     <?php 
@@ -82,9 +82,8 @@
                 $query = "DELETE FROM cart WHERE id='$cartID'";
                 mysqli_query($conn,$query) or die(mysqli_error($conn));
             }
-        }
-
-        if(isset($_POST['eventID'])){
+        }else if(isset($_POST['eventID'])){
+            
             $UserID = $_SESSION["id"];
             $query = "INSERT INTO `transaction`(`UserID`,`status`)
                     VALUES('$UserID','BELUM')";
@@ -92,16 +91,19 @@
             
             $query = mysqli_query($conn,"select * from transaction ORDER BY transactionID DESC LIMIT 1") or die(mysqli_error($conn));
             $querys = mysqli_fetch_assoc($query);
+            
             $transactionID = $querys['transactionID'];
+            
             $eventID = $_POST['eventID'];
             $eventQTY = $_POST['qty'];
             $randomNumber = rand(100000,999999);
-            $query = "INSERT INTO transactionDetail(`transactionID`,`eventID`,`qty`)
+            
+            $query = "INSERT INTO transactionDetail(`transactionID`,`eventID`,`qty`,`kodeBooking`)
                 VALUES('$transactionID','$eventID',$eventQTY,$randomNumber)";
             mysqli_query($conn,$query) or die(mysqli_error($conn));
-
-            $query = "DELETE FROM cart WHERE id='$cartID'";
-            mysqli_query($conn,$query) or die(mysqli_error($conn));
+            // echo "<script>alert('kegantenganvincent')</script>";
+            // $query = "DELETE FROM cart WHERE id='$cartID'";
+            // mysqli_query($conn,$query) or die(mysqli_error($conn));
         }
     ?>
     <div id="upload">

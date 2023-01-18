@@ -13,7 +13,8 @@
         session_start();
         $UserID = $_SESSION["id"];
         $query = "SELECT * FROM transaction t JOIN transactiondetail td ON t.transactionID = td.transactionID
-                    JOIN event e ON e.EventID = td.eventID where userID = $UserID AND kategoriID IN (1,3)";
+                    JOIN event e ON e.EventID = td.eventID where userID = $UserID AND kategoriID IN (1,3)
+                    GROUP BY e.EventID";
         // $twibbons = mysqli_query($conn, "SELECT * FROM event WHERE `logo` IS NOT NULL AND `twibbon` IS NOT NULL") or die(mysqli_error($conn));
         $twibbons = mysqli_query($conn, $query) or die(mysqli_error($conn));
     ?>

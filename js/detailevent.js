@@ -93,3 +93,13 @@ window.onload = function() {
         }
     }
 }
+
+function sending(){
+    var button = document.getElementById('send');
+    var comment = document.getElementById('comment').value;
+    if(comment != ""){
+        button.style.display = "block";
+    }else{
+        button.style.display = "none";
+    }
+};
