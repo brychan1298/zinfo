@@ -81,8 +81,12 @@ if(isset($_POST["signup"]) ) {
                             <input type="checkbox" name="tnc" id="tnc" required>
                             <label for="tnc">I've read and agreed with the terms and condition*</label>
                         </div>
-
+                        
                         <button name = "signup" id="btnSubmit">Sign Up</button>
+                        <div id = "login">
+                            <p>Already have an account?</p>
+                            <a href="login.php">LOGIN</a>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -101,91 +105,8 @@ if(isset($_POST["signup"]) ) {
     </div>
     
     <!-- FOOTER -->
-    <div id="footer-wrapper">
-        <div id="footer">
-            <div class="footer-box1 a">
-                <img src="Asset/Logo ZInfo 2.png" alt="">
-            </div>
-            <div class="footer-box2 a">
-                <h2>ZInfo</h2>
-    
-                <p>About Us</p>
-                <p>Event</p>
-                <p>Twibbon</p>
-            </div>
-            <div class="footer-box3 a">
-                <h2>Copyright</h2>
-    
-                <p>Privacy Policy</p>
-                <p>Terms & Condition</p>
-            </div>
-            <div class="footer-box4 a">
-                <h2>Follow Us</h2>
-    
-                <div class="footer-follow-us">
-                    <div>
-                        <img src="Asset/icon-ig.png" alt="">
-                    </div>
-                    <div>
-                        Instagram
-                    </div>
-                </div>
-                <div class="footer-follow-us">
-                    <div>
-                        <img src="Asset/icon-fb.png" alt="">
-                    </div>
-                    <div>
-                        Facebook
-                    </div>
-                </div>
-                <div class="footer-follow-us">
-                    <div>
-                        <img src="Asset/icon-twitter.png" alt="">
-                    </div>
-                    <div>
-                        Twitter
-                    </div>
-                </div>
-                <div class="footer-follow-us">
-                    <div>
-                        <img src="Asset/icon-tiktok.png" alt="">
-                    </div>
-                    <div>
-                        Tik Tok
-                    </div>
-                </div>
-                <div class="footer-follow-us">
-                    <div>
-                        <img src="Asset/icon-youtube.png" alt="">
-                    </div>
-                    <div>
-                        Youtube
-                    </div>
-                </div>
-            </div>
-            <div class="footer-box5 a">
-                <h2>Contact Us</h2>
-                <div class="footer-follow-us">
-                    <div>
-                        <img src="Asset/icon-wa.png" alt="">
-                    </div>
-                    <div>
-                        (+1) 415 1234567
-                    </div>
-                </div>
-                <div class="footer-follow-us">
-                    <div>
-                        <img src="Asset/icon-email.png" alt="">
-                    </div>
-                    <div>
-                        info@zinfo.co
-                    </div>
-                </div>
-            </div>
-        </div>
+    <?php include "footer.php" ?>
 
-        <h4>© 2022 ZInfo. All rights reserved.</h4>
-    </div>
     <script src="js/signup.js"></script>
 </body>
 </html>
