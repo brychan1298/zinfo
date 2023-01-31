@@ -262,8 +262,12 @@ nav{
     width: 70%;
 }
 
+#filter-section img{
+    width: 3.5vh;
+}
+
 #filter-section > div > select{
-    padding: 10px;
+    padding: 7px;
     border-radius: 10px;
     color: #9D9D9D;
     box-shadow: 0px 0px 5px rgba(38, 45, 118, 50%);
@@ -288,11 +292,11 @@ nav{
 }
 
 #filter-date > input{
-    padding: 10px;
+    padding: 7px;
     box-shadow: 0px 0px 5px rgba(38, 45, 118, 50%);
     border-radius: 10px;
     border: none;
-    margin-left: 12px;
+    margin-left: 10px;
 }
 
 
@@ -314,6 +318,16 @@ nav{
     border-radius: 12px;
     padding: 12px 40px;
     border: none;
+}
+
+@media(max-width:500px){
+    #filter-section{
+        display: block;
+    }
+
+    #filter-section > div{
+        margin-bottom: 10px;
+    }
 }
 
 /* FILTER CSS } */
@@ -412,6 +426,7 @@ nav{
         flex: 80%;
         max-width: 80%;
     }
+    
 }
 
 

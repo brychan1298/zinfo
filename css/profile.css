@@ -116,5 +116,19 @@ body{
     border: none;
     border-radius: 15px;
     font-size: 1.3em;
-    cursor: pointer;
+    cursor: pointer
+    
+    ;
+}
+
+@media(max-width:425px){
+    #profile #left-profile{
+        flex: 100%;
+        max-width: 100%;
+        margin-bottom: 45px;
+    }
+    #profile #right-profile{
+        flex: 100%;
+        max-width: 100%;
+    }
 }

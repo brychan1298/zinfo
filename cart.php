@@ -91,8 +91,8 @@
                     </div>
                 </div>
                 
-                <div class="qty">
-                    <h1 class="qtys">Quantity</h1>
+                <div class="cart-qty">
+                    <h1 class="cart-qtys">Quantity</h1>
                     <div class="event-count">
                         <div>
                             <div class="minButton" onclick="reduceAmount(<?= $cart['id'] ?>,<?= $cart['qty'] ?>)">-</div>

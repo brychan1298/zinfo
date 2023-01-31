@@ -226,6 +226,15 @@ nav ul li a:hover{
     height : 50%;
 }
 
+@media(max-width:500px){
+
+    #twibbon-section .twibbon-list{
+        flex: 100%;
+        max-width: 100%;
+        margin-right:-50px;
+    }
+}
+
 /* EVENT CSS } */
 
 

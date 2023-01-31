@@ -224,7 +224,7 @@
             </div>
             <div id="detail-event-right-child-2">
                 <p>
-                    503 Comments
+                    <?= mysqli_num_rows($comments) ?> Comments
                 </p>
                 <form action="detailevent.php?eventID=<?=$EventID?>" method="POST">
                     <div class="current-comment">
@@ -241,7 +241,7 @@
                             <div class="input-comment">
                                 <input type="text" name="comment" placeholder="Add a comment..." id="comment" onkeyup="sending()">
                                 <button id="send">
-                                    Send
+                                    <img src="Asset/send.png">
                                 </button>
                             </div>
                         <?php

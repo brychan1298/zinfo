@@ -330,6 +330,13 @@ body{
 
 #send{
     display:none;
+    border: none;
+    background-color: white;
+}
+
+#send > img{
+    cursor: pointer;
+    width: 2.4vh;
 }
 
 .name-date{
