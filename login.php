@@ -99,6 +99,10 @@ if(isset($_POST["login"])) {
                         
                         <p>Forgot password?</p>
                         <button type="submit" name="login" id="btnSubmit">Sign In</button>
+                        <div id = "signup">
+                            <p>New here?</p>
+                            <a href="signup.php">create a new account</a>
+                        </div>
                     </form>
                 </div>
             </div>

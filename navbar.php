@@ -12,6 +12,7 @@
 </head>
 <body>
     <?php
+        // error_reporting(E_ERROR | E_WARNING | E_PARSE);
         include 'DBconn.php';
         session_start();
         $total_cart = 0;
