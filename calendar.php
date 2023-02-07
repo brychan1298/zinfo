@@ -52,7 +52,7 @@ $(document).ready(function () {
         
         editable: true,
         eventClick: function (event) {
-            var deleteMsg = confirm("Do you really want to delete?");
+            alert(event.title)
             if (deleteMsg) {
                 $.ajax({
                     type: "POST",
@@ -104,7 +104,6 @@ function displayMessage(message) {
 </head>
 <body>
     <?php include "navbar.php" ?>
-
     <div class="response"></div>
     <div id='calendar'></div>
     <?php include "footer.php" ?>

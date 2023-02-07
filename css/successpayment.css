@@ -198,3 +198,13 @@ nav{
     text-align: center;
     margin-top: 40px;
 }
+
+@media(max-width:400px){
+    #success{
+        margin: 5% 5%;
+        box-shadow: 0px 10px 30px rgba(0,0,0, 40%);
+        border-radius: 20px;
+        text-align: center;
+        padding: 4% 5%;
+    }
+}

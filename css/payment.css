@@ -254,3 +254,31 @@ nav{
     color: white;
     font-size: 1.4em;
 }
+
+@media(max-width:400px){
+    #payment{
+        margin: 5% 5%;
+    }
+
+    #account-info-1{
+        font-size: 1em;
+        font-weight: 500;
+    }
+    
+    #account-info-2{
+        font-size: 1em;
+        font-weight: 500;
+        margin-left: 6px;
+        color: #1774FF;
+    }
+
+    #account-info-3 > img{
+        width: 44%;
+        margin-left: 15px;
+    }
+
+    #account-info-4{
+        color: #9D9D9D;
+        text-decoration: underline;
+    }
+}
