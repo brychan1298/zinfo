@@ -46,7 +46,7 @@
                     mysqli_query($conn,"INSERT INTO reminder(`UserID`,`EventID`)
                                         VALUES('$UserID','$eventid')");
                 }
-                header('Location: pending.php');
+                echo "<script>window.location.href='pending.php'</script>";
             }else{
                 echo "extension not allowed, please choose a JPEG or PNG file.";
             }

@@ -20,7 +20,9 @@
         <div id="pending-2">
             Hmm, your payment is being verified by us. We hope this process is not too long for you. Wait until 1x24 hours before contacting our customer service.
             <div id="pending-3">
-                <button>Cari Event Lain</button>
+                <button onclick="location.href='event.php'">
+                    Cari Event Lain
+                </button>
             </div>
         </div>
         
