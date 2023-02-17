@@ -81,11 +81,17 @@
                     <a href="successpayment.php?id=<?=$history['transactiondetailID']?>">
                         Claim Ticket
                     </a>
-                    <p>
-                        <a href="certificate.php">
-                            Claim E-Certificate
-                        </a>
-                    </p>
+                    <?php
+                        if($history["Kategori"] == "Competition" || $history["Kategori"] == "Volunteer"):
+                    ?>
+                        <p>
+                            <a href="certificate.php">
+                                Claim E-Certificate
+                            </a>
+                        </p>
+                    <?php
+                        endif;
+                    ?>
                 <?php else: ?>
                     
                 <?php endif; ?>

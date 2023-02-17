@@ -1,33 +1,3 @@
-<?php
-session_start();
-require 'functions.php';
-
-if(isset($_POST["login"])) {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    
-    $result = mysqli_query($conn, "SELECT * FROM user WHERE Email = '$email'");
-
-    // cek email
-    if(mysqli_num_rows($result) === 1) {
-        // cek password
-        $row = mysqli_fetch_assoc($result);
-
-        if(password_verify($password, $row["Password"])) {
-            // Set Session for User
-            $_SESSION["login"] = true;
-            $_SESSION["user"] = $row["Nama"];
-            $_SESSION["id"] = $row["UserID"];
-            header("Location: home.php");
-            exit;
-        }
-    }
-
-    $error = true;
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +12,34 @@ if(isset($_POST["login"])) {
 <body>
     <!-- NAVBAR -->
     <?php include "navbar.php" ?>
+    <?php
+    require 'functions.php';
+
+    if(isset($_POST["login"])) {
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        
+        $result = mysqli_query($conn, "SELECT * FROM user WHERE Email = '$email'");
+
+        // cek email
+        if(mysqli_num_rows($result) === 1) {
+            // cek password
+            $row = mysqli_fetch_assoc($result);
+
+            if(password_verify($password, $row["Password"])) {
+                // Set Session for User
+                $_SESSION["login"] = true;
+                $_SESSION["user"] = $row["Nama"];
+                $_SESSION["id"] = $row["UserID"];
+                header("Location: home.php");
+                exit;
+            }
+        }
+
+        $error = true;
+    }
+
+    ?>
 
     <!-- Sign In -->
     <div class="container-wrapper">

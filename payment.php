@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="css/payment.css">
 </head>
 <body>
-
     <?php include "navbar.php" ?>
     <?php
-        session_start();
         include "DBconn.php";
         $listOfAllCartID = [];
     ?>

@@ -3,6 +3,7 @@ require 'functions.php';
 
 if(isset($_POST["signup"]) ) {
     // ada user baru
+    // sleep(1);
     if(signup($_POST) > 0) {
         echo "<script>
                 alert('user baru berhasil ditambahkan!');
@@ -106,7 +107,6 @@ if(isset($_POST["signup"]) ) {
     
     <!-- FOOTER -->
     <?php include "footer.php" ?>
-
     <script src="js/signup.js"></script>
 </body>
 </html>

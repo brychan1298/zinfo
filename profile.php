@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
+
+
+    <?php include "navbar.php" ?>  
     <?php
         include 'DBconn.php';
-        session_start();
         $UserID = $_SESSION["id"];
         if(isset($_POST["updateProfile"])){
             $nama = $_POST['nama'];
@@ -26,13 +28,11 @@
         $query = mysqli_query($conn, "SELECT * FROM `user` WHERE UserID = '$UserID'");
         $userDetail = mysqli_fetch_assoc($query);  
     ?>
-
-    <?php include "navbar.php" ?>
     <div id="profile">
         <div id="left-profile">
             <div>
                 <img src="Asset/poster/12.jpeg" alt="">
-                <h3>Brychan Artanto</h3>
+                <h3><?= $userDetail['Nama']?></h3>
                 <div class="profile-menu active">
                     <img src="Asset/white-profile.png" alt="">
                     <p>Profile</p>

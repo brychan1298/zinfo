@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="css/twibbon.css">
 </head>
 <body>
+    <!-- NAVBAR -->
+    <?php include "navbar.php" ?>
     <?php
         include "DBconn.php";
-        session_start();
         $UserID = $_SESSION["id"];
         $query = "SELECT * FROM transaction t JOIN transactiondetail td ON t.transactionID = td.transactionID
                     JOIN event e ON e.EventID = td.eventID where userID = $UserID AND kategoriID IN (1,3)
@@ -18,8 +19,7 @@
         // $twibbons = mysqli_query($conn, "SELECT * FROM event WHERE `logo` IS NOT NULL AND `twibbon` IS NOT NULL") or die(mysqli_error($conn));
         $twibbons = mysqli_query($conn, $query) or die(mysqli_error($conn));
     ?>
-    <!-- NAVBAR -->
-    <?php include "navbar.php" ?>
+    
 
     <!-- BANNER -->
     <div id="banner">
@@ -46,7 +46,7 @@
             ?>
             <div>
                 <h1>
-                    Belum ada twibbon yang dapat digunakan.
+                    There is no twibbon yet
                 </h1>
             </div>
             <?php

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +18,7 @@
     <?php
         // error_reporting(E_ERROR | E_WARNING | E_PARSE);
         include 'DBconn.php';
-        session_start();
+        
         $total_cart = 0;
         if(isset($_SESSION["login"])):
             $UserID = $_SESSION["id"];
@@ -61,7 +64,9 @@
                             <img src="Asset/cart.png" alt="">
                         </a>
                         <div class="qty">
-                            <?= $total_cart ?>
+                            <div id="navbarQty1">
+                                <?= $total_cart ?>
+                            </div>
                         </div>
                     </li>
                     <li id="loginS">
@@ -114,7 +119,9 @@
                             <img src="Asset/cart.png" alt="">
                         </a>
                         <div class="qty">
-                            <?= $total_cart ?>
+                            <div id="navbarQty2">
+                                <?= $total_cart ?>
+                            </div>
                         </div>
                     </li>
                     <!-- <li class="hideLogo">

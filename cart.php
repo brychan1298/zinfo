@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
+    <?php include "navbar.php" ?>
     <?php
         include 'DBconn.php';
-        session_start();
         $total_cart = 0;
         $UserID = $_SESSION["id"];
         $carts = mysqli_query($conn, "SELECT * FROM cart c 
@@ -37,7 +37,6 @@
         }
     ?>
    
-    <?php include "navbar.php" ?>
     <div class="myCart">
         <img src="Asset/blackcart.png" alt="">
         My Cart

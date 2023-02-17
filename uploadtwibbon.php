@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/uploadtwibbon.css">
 </head>
 <body>
+    <!-- NAVBAR -->
+    <?php include "navbar.php" ?>
     <?php
         include "DBConn.php";
         $EventID = $_GET["eventID"];
@@ -18,8 +20,6 @@
         $twibbons = mysqli_query($conn, "SELECT * FROM `event` WHERE EventID = $EventID") or die(mysqli_error($conn));
         $twibbonDetail = mysqli_fetch_assoc($twibbons);
     ?>
-    <!-- NAVBAR -->
-    <?php include "navbar.php" ?>
 
     <!-- Twibbon -->
     <div id = "twibbon">

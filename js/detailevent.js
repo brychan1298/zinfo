@@ -16,7 +16,7 @@ $(document).ready(function(){
         
         var eventID = $("#eventID").val();
         var qty = $("#textAmount").val();
-        var qtys = $("#qty").text();
+        var qtys = $("#navbarQty2").text();
 
         if(qty == 0){
             alert("Silahkan masukkan jumlah event");
@@ -29,11 +29,13 @@ $(document).ready(function(){
             data: {eventID: eventID, qty:qty},
             success: function(hasil) {
                 if(hasil != 'same'){
-                    $('#qty').html(hasil);
+                    $('#navbarQty1').html(hasil);
+                    $('#navbarQty2').html(hasil);
                     alert("Event berhasil ke keranjang anda");
                 }
                 else{
-                    $('#qty').html(qtys);
+                    $('#navbarQty1').html(qtys);
+                    $('#navbarQty2').html(qtys);
                     alert("Event sudah ada di keranjang anda");
                 }
             }

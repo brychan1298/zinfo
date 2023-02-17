@@ -11,7 +11,6 @@
 
     <?php include "navbar.php" ?>
     <?php
-        session_start();
         include "DBconn.php";
         if(isset($_FILES['proof']['name'])){
             $errors=false;
